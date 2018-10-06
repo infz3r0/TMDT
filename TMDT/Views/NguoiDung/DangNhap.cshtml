@@ -1,0 +1,49 @@
+﻿
+
+
+@{
+    ViewBag.Title = "Đăng nhập";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section>
+    <div class=" row justify-content-center ">
+        <div class="span4">
+            <h4 class="title"><span class="text"><strong>ĐĂNG NHẬP</strong> WEBSITE</span></h4>
+            <form action="#" method="post" class="form-stacked">
+                <fieldset>
+                    <div class="control-group" style="margin-bottom:17px">
+                        <label class="control-label">Tên đăng nhập:</label>
+                        <div class="controls">
+                            <input type="text" name="TenDangNhap" class="form-control form-control-static" style="max-width:100%" required autofocus>
+                        </div>
+                    </div>
+                    <div class="control-group" style="margin-bottom:17px">
+                        <label class="control-label">Mật khẩu:</label>
+                        <div class="controls">
+                            <input type="password" name="MatKhau" class="form-control form-control-static" style="max-width:100%" required>
+                        </div>
+                    </div>
+                    <h6 style="color:red; font-size:13px">
+                        <td>
+                            @ViewBag.Thongbao
+                        </td>
+                    </h6>
+                    <hr>
+                    <div class="actions"><input tabindex="2" class="btn btn-outline-info btn-block btn-lg" type="submit" value="Đăng nhập" style="max-width:100%"></div>
+                </fieldset>
+            </form>
+            <div style="margin-bottom:17px; margin-top:17px">
+                <a href="@Url.Action("DoiMatKhau","NguoiDung") " class="btn-link">Quên mật khẩu? </a>
+            </div>
+            <div style="margin-bottom:17px">
+                <a href="@Url.Action("DangKy","NguoiDung") " class="btn-link">Bạn chưa có tài khoản? </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+

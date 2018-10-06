@@ -1,0 +1,14 @@
+﻿@model TMDT.Models.TaiKhoan
+
+<div class="header-bottom">
+    <div class="container">
+
+        @foreach (var item in Model)
+        {
+            <li>
+                <a href="@Url.Action("#", "#", new {id=item.MaKH})">@item.HoTen</a>
+            </li>
+        }
+
+    </div>
+</div>

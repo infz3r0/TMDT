@@ -1,0 +1,69 @@
+﻿
+
+@{
+    ViewBag.Title = "Đăng ký thành viên";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="main-content">
+    <div class=" row justify-content-center">
+        <div class="span6">
+            <h4 class="title"><span class="text"><strong>ĐĂNG KÝ</strong> THÀNH VIÊN</span></h4>
+            <form action="#" method="post" class="form-stacked">
+                <fieldset>
+                    <div class="control-group" style="margin-bottom:17px">
+                        <label class="control-label">Tên đăng nhập:</label>
+                        <div class="controls">
+                            <input type="text" maxlength="50" name="TenDangNhap" class="form-control form-control-static" style="max-width:100%" required autofocus>
+                        </div>
+                    </div>
+                    <div class="control-group" style="margin-bottom:17px">
+                        <label class="control-label">Mật khẩu:</label>
+                        <div class="controls">
+                            <input type="password" maxlength="8" name="MatKhau" class="form-control form-control-static" style="max-width:100%" required>
+                        </div>
+                    </div>
+                    <div class="control-group" style="margin-bottom:17px">
+                        <label class="control-label">Nhập lại mật khẩu:</label>
+                        <div class="controls">
+                            <input type="password" maxlength="8" name="NhapLaiMatKhau" class="form-control form-control-static" style="max-width:100%" required>
+                            <h6 style="color:red; font-size:13px">
+                                <td>
+                                    @ViewData["Loi1"]
+                                </td>
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="control-group" style="margin-bottom:17px">
+                        <label class="control-label">Họ tên:</label>
+                        <div class="controls">
+                            <input type="text" maxlength="50" name="HoTen" class="form-control form-control-static" style="max-width:100%" required>
+                        </div>
+                    </div>
+                    <div class="control-group" style="margin-bottom:17px">
+                        <label class="control-label">Giới tính:</label>
+                        <select name="GioiTinh" class="form-control form-control-static" style="max-width:100%" required>
+                            <option value="0">Nam</option>
+                            <option value="1">Nữ</option>
+                        </select>
+                    </div>
+                    <div class="control-group" style="margin-bottom:17px">
+                        <label class="control-label">Điện thoại:</label>
+                        <div class="controls">
+                            <input type="text" maxlength="11" name="DienThoai" class="form-control form-control-static" style="max-width:100%" required>
+                        </div>
+                    </div>
+                    <div class="control-group" style="margin-bottom:17px">
+                        <label class="control-label">Email:</label>
+                        <div class="controls">
+                            <input type="email" name="Email" class="form-control form-control-static" style="max-width:100%" required>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="actions"><input tabindex="6" class="btn btn-outline-info btn-block btn-lg" type="submit" value="Đăng ký" style="max-width:100%"></div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</section>
+
+

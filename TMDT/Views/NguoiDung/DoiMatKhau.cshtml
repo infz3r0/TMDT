@@ -1,0 +1,46 @@
+﻿
+
+@{
+    ViewBag.Title = "Đổi mật khẩu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model TMDT.Models.TaiKhoan
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="">
+    <h4 class="text-center">ĐỔI MẬT KHẨU</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.IDUser)
+
+        <div class="form-group row justify-content-center">
+            <label>Mật khẩu mới</label>
+            <input type="password" class="form-control" name="MatKhauMoi" required autofocus />
+        </div>
+        <div class="text-error">
+            @ViewBag.LoiMK
+        </div>
+        <div class="form-group row justify-content-center">
+            <label>Mật khẩu củ</label>
+            <input type="password" class="form-control" name="MatKhauCu" required />
+        </div>
+        <div class="text-error">
+            @ViewBag.Loi
+        </div>
+
+    </div>
+    <hr />
+    <div class="form-group row justify-content-center">
+        <div class="btn btn-outline-info btn-block btn-lg">
+            <input type="submit" value="Lưu" class="btn btn-success" />
+        </div>
+    </div>
+
+}
+
+
+

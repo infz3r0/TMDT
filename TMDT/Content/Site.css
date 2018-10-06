@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 0;
     padding-bottom: 20px;
 }
 
@@ -16,9 +16,67 @@
     white-space: normal;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+
+.navbar-toggler-user {
+    padding: 0 1px;
+    margin-right: 10px;
+    font-size: 25px;
+    background-color: #FFB6C1;
+    border: solid 1px #FFB6C1;
+    border-radius: 100%;
 }
+
+.navbar-brand-user {
+    margin: 0;
+    padding: 0;
+    color:black;
+    display: block;
+    font-size: 32px !important;
+    font-weight: bold;
+}
+
+/*.brand-hover {
+    padding: 10px 20px;
+}
+
+    .brand-hover:hover {
+        background-color: #FF7B40;
+    }
+
+.navbar-brand:hover {
+    color:black !important;
+}
+
+.navbar {
+    padding: 0;
+}
+
+.navbar-custom {
+    background-color: #FF5809;
+}
+
+.navbar-custom li {
+}
+
+.nav-link {
+    padding: 19px 20px !important
+}
+
+.navbar-custom li a {
+    color: black;
+    display: block;
+    font-size: 20px;
+}
+
+.nav-link:hover {
+    background-color: #FF7B40;
+}
+
+.dropdown-menu {
+    background-color: #FF6722;
+}
+
+.dropdown-item:hover {
+    background-color: #FF9469;
+}*/
+

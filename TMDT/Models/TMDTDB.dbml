@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TMDT" Class="TMDTDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=TMDT;Integrated Security=True" SettingsObjectName="TMDT.Properties.Settings" SettingsPropertyName="TMDTConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=TMDT;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="TMDTConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Admin" Member="Admins">
     <Type Name="Admin">
       <Column Name="Username" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -107,17 +107,4 @@
       <Association Name="NSX_SanPham" Member="NSX" ThisKey="IDNSX" OtherKey="IDNSX" Type="NSX" IsForeignKey="true" />
     </Type>
   </Table>
-  <Function Name="dbo.p_ChangePassword" Method="p_ChangePassword">
-    <Parameter Name="Username" Parameter="username" Type="System.String" DbType="VarChar(30)" />
-    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(40)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.p_UpdateCaiDat" Method="p_UpdateCaiDat">
-    <Parameter Name="TenThamSo" Parameter="tenThamSo" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="GiaTri" Parameter="giaTri" Type="System.String" DbType="NVarChar(100)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.f_GetIdentDatHang" Method="f_GetIdentDatHang" IsComposable="true">
-    <Return Type="System.Int32" />
-  </Function>
 </Database>
