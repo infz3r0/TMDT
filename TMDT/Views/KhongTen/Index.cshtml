@@ -1,0 +1,51 @@
+﻿@using TMDT.Models
+@model List<SanPham>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutKhongTen.cshtml";
+}
+
+<section class="container">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <h4 class="title text-center">
+                <span class="pull-left"><span class="text"><span class="line">SẢN PHẨM <strong>MỚI</strong></span></span></span>
+            </h4>
+
+            <div class="row">
+                @foreach (SanPham item in Model)
+                {
+                    <div class="col-md-4 col-sm-12">
+                        <a class="item-name" style="width:inherit" href="@Url.Action("Details", "KhongTen", new { id = item.IDSanPham })">
+                            <div class="box-item">
+                                <div class="img-thumbnail">
+                                    <img src="@Url.Content("~/Images/SanPham/" + item.HinhAnh)" />
+                                </div>
+                                <div class="info">
+                                    <p>@item.TenSanPham</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+
+    <hr />
+</section>
+
+@*<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="fb-like" data-href="@Url.Content("http://npl.somee.com/")" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="fb-comments" data-href="@Url.Content("http://npl.somee.com/")" data-numposts="5"></div>
+        </div>
+    </div>
+</div>*@
+

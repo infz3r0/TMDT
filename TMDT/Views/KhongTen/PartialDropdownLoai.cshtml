@@ -1,0 +1,7 @@
+﻿@using TMDT.Models;
+@model IEnumerable<Loai>
+
+@foreach (Loai item in Model)
+{
+    <a class="dropdown-item" href="@Url.Action("NSXTheoLoai", "KhongTen", new { idLoai = item.IDLoai })">@item.TenLoai</a>
+}

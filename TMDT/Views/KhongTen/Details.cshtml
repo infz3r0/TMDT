@@ -1,0 +1,42 @@
+﻿@using TMDT.Models
+@model SanPham
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutKhongTen.cshtml";
+}
+
+<div>
+    @Html.ActionLink("TRỞ LẠI TRANG CHỦ", "Index", null, new { @class = "btn btn-outline-secondary" })
+</div>
+
+<h2 class="text-center">THÔNG TIN CHI TIẾT VỀ SẢN PHẨM</h2>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4 col-sm-8">
+            <img src="~/Images/SanPham/@Model.HinhAnh" style="max-width:100%; height:auto" />
+        </div>
+
+        <div class="col-md-8 col-sm-4" style="padding-top: 1vh;">
+            <h4 style="font-weight:bold; color:red">Tên Sản Phẩm: @Model.TenSanPham</h4>
+            @*<p style="text-align:justify"><span style="font-weight:bold">Giới Thiệu Sản Phẩm: </span>@Model.GioiThieu</p>*@
+        </div>
+
+            
+    </div>
+
+</div>
+
+@*<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="fb-like" data-href="@Url.Content("http://npl.somee.com/")" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="fb-comments" data-href="@Url.Content("http://npl.somee.com/Home/Details/" + Model.IDMonAn)" data-numposts="5"></div>
+        </div>
+    </div>
+</div>*@
+

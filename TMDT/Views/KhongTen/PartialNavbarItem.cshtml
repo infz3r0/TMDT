@@ -1,0 +1,14 @@
+﻿@using TMDT.Models;
+@model IEnumerable<Nhom>
+
+@foreach (Nhom item in Model)
+{
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            @item.TenNhom
+        </a>
+        <div class="dropdown-menu">
+            @Html.Action("PartialDropdownLoai","KhongTen",new { idNhom = item.IDNhom })
+        </div>
+    </li>
+}
