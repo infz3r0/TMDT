@@ -1,0 +1,60 @@
+﻿@model TMDT.Models.Loai
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    ViewBag.Name = "loại";
+    ViewBag.ModelName = "Loai";
+}
+@helper GetName(string name)
+{
+    @String.Format("Ten{0}", name)
+}
+<div class="row">
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline-secondary", style = "float:left" })
+</div>
+<h2 style="text-align:center">
+    Thông tin chi tiết
+</h2>
+<hr />
+<div class="row justify-content-center">
+    <div class="col col-sm-10 col-md-10 col-lg-8 col-xl-6">
+        <table class="table table-detail">
+            <tr>
+                <th>Tên loại:</th>
+                <td>@Model.TenLoai</td>
+            </tr>
+            <tr>
+                <th>Tên nhóm:</th>
+                <td>@Model.Nhom.TenNhom</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="table-detail-end-td">
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.IDLoai }, new { @class = "btn btn-outline-secondary" })
+                    <a id="deleteItem" class="deleteItem btn btn-danger" data-target="#basic" data-toggle="modal" data-path="@Model.IDLoai" href="#">Delete</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="modal fade" id="basic" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Xác nhận xóa</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có chắc chắn muốn xóa @ViewBag.Name này?</p>
+            </div>
+            <div class="modal-footer">
+                @using (Html.BeginForm("Delete", "AdminLoai", FormMethod.Post))
+                {
+                    <input type="hidden" name="id" id="deleteID" value="" />
+                    <input type="submit" class="btn btn-danger btn-ok" value="Đồng ý xóa" />
+                }
+                <button type="button" class="btn btn-default" data-dismiss="modal">Không</button>
+            </div>
+        </div>
+    </div>
+</div>

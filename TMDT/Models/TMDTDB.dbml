@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TMDT" Class="TMDTDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=TMDT;Integrated Security=True" SettingsObjectName="TMDT.Properties.Settings" SettingsPropertyName="TMDTConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TMDTDatabase" Class="TMDTDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=TMDTDatabase.mssql.somee.com;Initial Catalog=TMDTDatabase;Persist Security Info=False;User ID=khongten;Packet Size=4096;Workstation ID=TMDTDatabase.mssql.somee.com" SettingsObjectName="TMDT.Properties.Settings" SettingsPropertyName="TMDTConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Admin" Member="Admins">
     <Type Name="Admin">
       <Column Name="Username" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -105,6 +105,35 @@
       <Association Name="SanPham_ChiTietDatHang" Member="ChiTietDatHangs" ThisKey="IDSanPham" OtherKey="IDSanPham" Type="ChiTietDatHang" />
       <Association Name="SanPham_KhuyenMai" Member="KhuyenMai" ThisKey="IDSanPham" OtherKey="IDSanPham" Type="KhuyenMai" Cardinality="One" />
       <Association Name="NSX_SanPham" Member="NSX" ThisKey="IDNSX" OtherKey="IDNSX" Type="NSX" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_ThongKeDoanhThu" Member="V_ThongKeDoanhThus">
+    <Type Name="V_ThongKeDoanhThu">
+      <Column Name="Thang" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Nam" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TongSoDonDatHang" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TongDoanhThu" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_ThongKeUser" Member="V_ThongKeUsers">
+    <Type Name="V_ThongKeUser">
+      <Column Name="Thang" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Nam" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDUser" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TongSoDonDatHang" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TongThanhTien" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="TongSanPham" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_ThongKeSanPham" Member="V_ThongKeSanPhams">
+    <Type Name="V_ThongKeSanPham">
+      <Column Name="Thang" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Nam" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDSanPham" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenSanPham" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TongSoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.p_ChangePassword" Method="p_ChangePassword">

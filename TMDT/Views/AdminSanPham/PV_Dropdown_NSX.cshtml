@@ -1,0 +1,15 @@
+﻿@using TMDT.Models
+@model List<NSX>
+<select class="form-control form-control-lg" name="IDNSX">
+    @foreach (NSX item in Model)
+    {
+        if (item.IDNSX == Convert.ToInt32(ViewBag.idNSX))
+        {
+            <option value="@item.IDNSX" selected>@item.TenNSX</option>
+        }
+        else
+        {
+            <option value="@item.IDNSX">@item.TenNSX</option>
+        }
+    }
+</select>

@@ -1,0 +1,75 @@
+﻿body {
+}
+
+.cell-center-middle {
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+
+.box-custom {
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 5px 5px 30px rgba(128, 128, 128, 0.3);
+}
+
+    .box-custom .title {
+        text-align: center;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .box-custom th, td {
+        text-align: center;
+    }
+
+.box-link-custom:hover {
+    text-decoration: none;
+    color: #001658;
+}
+
+.box-link-custom {
+    color: black;
+}
+
+.container-card-custom {
+    margin-bottom: 5px;
+}
+
+.card a:hover {
+    text-decoration: none;
+}
+
+.table td, th {
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    canvas {
+        display: none !important;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .content-table {
+        display: none;
+    }
+
+    .box-custom {
+        max-height: 50vh;
+    }
+}
+
+.btn-dropdown-custom {
+    background-color: #343a40 !important;
+    border: none;
+    text-align: left;
+}
+
+    .btn-dropdown-custom:hover {
+        background-color: #343a40;
+        color: rgba(255, 255, 255, 1);
+    }

@@ -1,0 +1,31 @@
+﻿@using TMDT.Models
+@model List<V_ThongKeSanPham>
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead class="thead-light">
+            <tr>
+                <th>
+                    Tên sản phẩm
+                </th>
+                <th>
+                    Tổng số lượng
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (V_ThongKeSanPham td in Model)
+            {
+                <tr>
+                    <td>
+                        @td.TenSanPham
+                    </td>
+                    <td>
+                        @td.TongSoLuong
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

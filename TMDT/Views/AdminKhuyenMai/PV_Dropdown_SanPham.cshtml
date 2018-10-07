@@ -1,0 +1,15 @@
+﻿@using TMDT.Models
+@model List<SanPham>
+<select id="dropdown_SanPham" class="form-control form-control-lg" name="IDSanPham">
+    @foreach (SanPham item in Model)
+    {
+        if (item.IDSanPham == Convert.ToInt32(ViewBag.idSanPham))
+        {
+            <option value="@item.IDSanPham" selected>@item.TenSanPham</option>
+        }
+        else
+        {
+            <option value="@item.IDSanPham">@item.TenSanPham</option>
+        }
+    }
+</select>

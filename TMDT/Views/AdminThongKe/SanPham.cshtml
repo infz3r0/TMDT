@@ -1,0 +1,30 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<MonthYear>
+@{
+    /**/
+
+    ViewBag.Title = "Thống kê sản phẩm";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="row">
+    @Html.ActionLink("Trở lại thống kê", "Index", null, new { @class = "btn btn-outline-secondary", style = "float:left" })
+</div>
+<h2 style="text-align:center">@ViewBag.Title</h2>
+@foreach (MonthYear item in Model)
+{
+    <div class="container-fluid container-card-custom">
+        <div class="card">
+            <a data-toggle="collapse" href="#collapse-@(item.Month)-@(item.Year)" role="button" aria-expanded="false" aria-controls="collapseExample">
+                <div class="card-header text-left">
+                    Tháng @item.Month/@item.Year
+                </div>
+            </a>
+            <div class="collapse" id="collapse-@(item.Month)-@(item.Year)">
+                <div class="card-body">
+                    @Html.Action("PV_SanPhamByMonthYear", "AdminThongKe", new { month = item.Month, year = item.Year })
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@Html.PagedListPager(Model, page => Url.Action("SanPham", new { page }))

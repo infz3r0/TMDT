@@ -1,0 +1,39 @@
+﻿@model TMDT.Models.Nhom
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    ViewBag.Name = "nhóm";
+    ViewBag.ModelName = "Nhom";
+}
+@helper GetName(string name)
+{
+    @String.Format("Ten{0}", name)
+}
+<div class="row">
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline-secondary", style = "float:left" })
+</div>
+<h2 style="text-align:center">
+    Tạo @ViewBag.Name mới
+</h2>
+<hr />
+<div class="row justify-content-center">
+    <div class="col col-sm-10 col-md-10 col-lg-8 col-xl-6">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <input type="text" class="form-control form-control-lg" name="@GetName(ViewBag.ModelName)" placeholder="Nhập tên @ViewBag.Name" required autofocus>
+                    <div class="text-danger">@ViewBag.MessageFail</div>
+                    <div class="text-success">@ViewBag.MessageSuccess</div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Tạo mới" class="btn btn-outline-success" />
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@*Thêm chức năng: ViewBag mất đi khi nhập vào input*@

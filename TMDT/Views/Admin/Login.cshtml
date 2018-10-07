@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    @Styles.Render("~/Content/admincss")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="container" style="padding-top:1vw">
+        <h3 class="text-center">Login</h3>
+        <div class="row justify-content-center">
+            <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                @using (Html.BeginForm("Login", "Admin", FormMethod.Post))
+                {
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-lg" name="username" placeholder="Username" required autofocus>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control form-control-lg" name="password" placeholder="Password" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-outline-primary btn-block btn-lg">Login</button>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="text-center" style="font-size:x-large;color:#721C24">@ViewBag.Message</div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

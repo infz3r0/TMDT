@@ -1,0 +1,113 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<TMDT.Models.NSX>
+@{
+    /**/
+
+    ViewBag.Title = "NSX";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    ViewBag.Name = "NSX";
+    ViewBag.ModelName = "NSX";
+}
+@helper GetName(string name)
+{
+    @String.Format("Ten{0}", name)
+}
+<h2 style="text-align:center">@ViewBag.Title</h2>
+<p>
+    @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-outline-success btn-create" })
+</p>
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+            <tr>
+                <th class="cell-center-middle">
+                    Tên NSX
+                </th>
+                <th class="cell-center-middle">
+                    Giới thiệu
+                </th>
+                <th class="cell-center-middle">
+                    Hình ảnh
+                </th>
+                
+                <th class="cell-center-middle">
+                    Loại
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="min-width:150px" class="cell-center-middle">
+                        @Html.DisplayFor(modelItem => item.TenNSX)
+                    </td>
+                    <td style="max-width:300px;min-width:100px" class="cell-center-middle">
+                        <div style="max-height:100px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap" title="@item.GioiThieu">
+                            @Html.DisplayFor(modelItem => item.GioiThieu)
+                        </div>
+                    </td>
+                    <td style="padding:0; max-width:10vw; min-width:130px">
+                        <img src="@Url.Content("~/Images/NSX/" + item.HinhAnh)" alt="@item.HinhAnh" style="width:100%; height:auto" />
+                    </td>
+                    
+                    <td class="cell-center-middle">
+                        @Html.DisplayFor(modelItem => item.Loai.TenLoai)
+                    </td>
+                    <td style="min-width:220px; vertical-align:middle">
+                        @Html.ActionLink("Sửa", "Edit", new { id = item.IDNSX }, new { @class = "btn btn-outline-secondary" })
+                        @Html.ActionLink("Chi tiết", "Details", new { id = item.IDNSX }, new { @class = "btn btn-outline-info" })
+                        <a id="deleteItem" class="deleteItem btn btn-danger" data-target="#basic" data-toggle="modal" data-path="@item.IDNSX" href="#">Xóa</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+<div class="modal fade" id="basic" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Xác nhận xóa</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có chắc chắn muốn xóa @ViewBag.Name này?</p>
+            </div>
+            <div class="modal-footer">
+                @using (Html.BeginForm("Delete", "AdminNSX", new { page = Request.Params["page"] }, FormMethod.Post))
+                {
+                    <input type="hidden" name="id" id="deleteID" value="" />
+                    <input type="submit" class="btn btn-danger btn-ok" value="Đồng ý xóa" />
+                }
+                <button type="button" class="btn btn-default" data-dismiss="modal">Không</button>
+            </div>
+        </div>
+    </div>
+</div>
+@if (ViewBag.IsError == true)
+{
+    <!-- Modal -->
+    <div class="modal fade" id="errorModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Lỗi</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body modal-body-custom">
+                    <div class="alert alert-danger">
+                        @ViewBag.ErrorBody
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}

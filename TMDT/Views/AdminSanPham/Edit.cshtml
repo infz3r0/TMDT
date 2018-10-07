@@ -1,0 +1,55 @@
+﻿@model TMDT.Models.SanPham
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    ViewBag.Name = "Sản phẩm";
+    ViewBag.ModelName = "SanPham";
+}
+@helper GetName(string name)
+{
+    @String.Format("Ten{0}", name)
+}
+<div class="row">
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline-secondary" })
+</div>
+<h2 style="text-align:center">
+    Chỉnh sửa thông tin @ViewBag.Name
+</h2>
+<hr />
+<div class="row justify-content-center">
+    <div class="col col-sm-10 col-md-10 col-lg-8 col-xl-6">
+        @using (Html.BeginForm("Edit", "AdminSanPham", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.IDSanPham)
+
+        <div class="form-horizontal">
+            <div class="form-group">
+                <input type="text" class="form-control form-control-lg" name="@GetName(ViewBag.ModelName)" placeholder="Nhập tên @ViewBag.Name" value="@Model.TenSanPham" required autofocus>
+            </div>
+            <div class="form-group">
+                <input type="file" class="form-control-file" name="fileUpload" accept="image/*" />
+                <img src="@Url.Content("~/Images/SanPham/" + Model.HinhAnh)" alt="@Model.HinhAnh" style="max-width:10vw; min-width:130px; width:10vw; height:auto" />
+            </div>
+            <div class="form-group">
+                <input type="number" min="0" step="500" class="form-control" name="DonGia" placeholder="Nhập đơn giá" value="@Model.DonGia" required />
+            </div>
+            <div class="form-group">
+                <input type="number" min="0" step="500" class="form-control" name="PhiVanChuyen" placeholder="Nhập phí vận chuyển" value="@Model.PhiVanChuyen" required />
+            </div>
+            <div class="form-group">
+                @Html.Action("PV_Dropdown_NSX", "AdminSanPham", new { id = Model.IDNSX })
+            </div>
+            <div class="form-group">
+                <div class="text-danger">@ViewBag.MessageFail</div>
+                <div class="text-success">@ViewBag.MessageSuccess</div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Cập nhật" class="btn btn-outline-success" />
+            </div>
+        </div>
+        }
+    </div>
+</div>

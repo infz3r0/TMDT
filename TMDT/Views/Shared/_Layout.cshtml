@@ -1,44 +1,124 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
+<html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - NPL</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
+
+    @Html.Action("PV_Header", "AdminCaiDat")
+
+    <div class="clearfix"></div>
+    <nav class="navbar navbar-expand-md bg-custom navbar-dark">
+
+
+
+        <!-- Brand -->
+        @Html.ActionLink("Home", "Index", "Home", null, new { @class = "navbar-brand navbar-brand-custom" })
+
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse navbar-collapse-custom" id="collapsibleNavbar">
+            <ul class="navbar-nav mr-auto">
+
+                @*@Html.Action("PartialNavbarItem", "Home")*@
+            </ul>
+            <ul class="navbar-nav">     
+
+                @Html.Action("TaiKhoan", "NguoiDung")
+
+                <li class="nav-item">
+                    @using (Html.BeginForm("KetQuaTimKiem", "TimKiem", FormMethod.Post, new { @class = "form-inline" }))
+                    {
+                        <div class="form-group">
+                            <input type="text" name="txtTimkiem" class="form-control" placeholder="Search" required>
+                        </div>
+                        <button type="submit" class="btn btn-success">
+                            Search
+                        </button>
+                    }
+                </li>
+            </ul>
         </div>
-    </div>
+    </nav> 
+
+
+    <br />
+
+    @RenderBody()
+
+    
     <div class="container body-content">
-        @RenderBody()
+
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+
+
+
+            <section id="footer-bar" style="background-color:tomato">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-3" style="padding-left: 25px; min-width:250px">
+                            <h4>Liên hệ</h4>
+                            <ul class="contact">
+                                <li>
+                                    Địa chỉ: 475A Điện Biên Phủ
+                                </li>
+                                <li>
+                                    SĐT: 38456123
+                                </li>
+                            </ul>
+                        </div>
+                        @*Fanpage Facebook*@
+                        <div class="col-4" style="min-width:250px">
+                            <h4>Kết nối với chúng tôi</h4>
+                            <div style="height:auto; width:inherit" class="fb-page icon-repeat" data-href="https://www.facebook.com/NPL-583877955305428/" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/NPL-583877955305428/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/NPL-583877955305428/">NPL</a></blockquote></div>
+
+                        </div>
+                        @*Zalo chat*@
+                        <div class="zalo-chat-widget " data-oaid="2443317400706361226" data-welcome-message="Rất vui khi được hỗ trợ bạn!" data-autopopup="1" data-width="350" data-height="420"></div>
+                        <script src="https://sp.zalo.me/plugins/sdk.js"></script>
+                        @*Maps*@
+                        <div class="col-5" style="min-width:250px">
+                            <h4>Trải nghiệm trực tiếp</h4>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.123600824663!2d106.71265711449475!3d10.801844361678471!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528a459cb43ab%3A0x6c3d29d370b52a7e!2sHUTECH+University!5e0!3m2!1sen!2s!4v1522915287888" frameborder="1" style="border:medium; width:inherit; height:auto"></iframe>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <p>&copy; @DateTime.Now.Year - Thương Mại Điện Tử</p>
         </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/otherscript")
     @RenderSection("scripts", required: false)
+
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.12';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+
 </body>
 </html>
+

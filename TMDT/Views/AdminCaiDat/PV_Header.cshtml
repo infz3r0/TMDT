@@ -1,0 +1,26 @@
+﻿<header>
+    <div id="header">
+        <div id="logo" class="col-2">
+            @if (!string.IsNullOrEmpty(ViewBag.UrlLogo))
+            {
+                <img src="@ViewBag.UrlLogo" class="img-header" />
+            }
+        </div>
+        <div id="banner" class="col-10">
+            <div id="demo" class="carousel slide" data-ride="carousel">
+                <!-- The slideshow -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="@ViewData["Url_hinh_banner_1"]" alt="banner 1" class="img-header">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="@ViewData["Url_hinh_banner_2"]" alt="banner 2" class="img-header">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="@ViewData["Url_hinh_banner_3"]" alt="banner 3" class="img-header">
+                    </div>
+                </div>
+            </div><!--Carousel-->
+        </div>
+    </div>
+</header>

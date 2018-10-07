@@ -1,0 +1,298 @@
+﻿body {
+    padding-top: 0;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+#logo {
+    float: left;
+    height: 100%;
+    padding: 0;
+}
+
+#banner {
+    padding: 0;
+    float: left;
+    height: 100%;
+}
+
+#banner .carousel {
+    height:100%;
+}
+
+#banner .carousel .carousel-inner {
+    height: 100%;
+}
+
+.img-header {
+    height: 100%;
+    width: 100%;
+}
+
+#header {
+    height: 20vh;
+    background-image: url('../Images/ChoppingBoard2.gif');
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    #header {
+        height: 8vh;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    #header {
+        height: 10vh;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    #header {
+        height: 12vh;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    #header {
+        height: 20vh;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    #navbar-padding {
+        padding-left: 30px;
+    }
+}
+
+.bg-custom {
+    background-color: #e62e00 !important;
+}
+
+.navbar-brand-custom {
+    color: black !important;
+}
+
+.navbar-brand-custom:hover {
+    color: white !important;
+}
+
+.navbar-collapse-custom .nav-link {
+    font-size: medium;
+    color: black !important;
+}
+
+    .navbar-collapse-custom .nav-link:hover {
+        color: white !important;
+    }
+
+.dropdown-custom {
+    background-color: #ff471a !important;
+}
+
+.dropdown-custom .dropdown-item {
+    color: black !important;
+}
+
+.dropdown-custom > a:hover {
+    color: black !important;
+    background-color: #ff9980;
+}
+/*---------menu-------------*/
+#tooplate_wrapper {
+    width: 1500px;
+    padding: 0 10px;
+    margin: 0 auto;
+}
+
+#tooplate_sidebar {
+    float: left;
+    width: 280px;
+}
+#id-header 
+{
+    width: 228px;
+    padding: 198px 20px 5px;
+    height: 93px;
+    background: url(../images/menu/tooplate_site_header.png) no-repeat top
+}
+menu {
+    clear: both;
+    width: 228px;
+}
+ul.navigation 
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+    ul.navigation li 
+    {
+        margin: 0;
+        padding: 0;
+    }
+    ul.navigation a
+    {
+        display: block;
+        width: 228px;
+        height: 59px;
+        font-size: 16px;
+        font-weight: 700;
+        text-decoration: none;
+        text-align: center;
+        color: #000;
+        background: url(../images/menu/tooplate_menu.png) no-repeat
+    }
+ ul.navigation a.last 
+ {
+    height: 98px;
+    background: url(../images/menu/tooplate_menu_last.png) no-repeat top left;
+}
+ul.navigation a:hover, ul.navigation a.selected 
+{
+    color: #fff;
+}
+
+ul.navigation a:focus
+{
+    outline: none;
+}
+.scrollButtons 
+{
+    position: absolute;
+    top: 300px;
+    cursor: pointer;
+}
+
+    .scrollButtons.left 
+    {
+        left: 0
+    }
+
+    .scrollButtons.right
+    {
+        right: 0
+    }
+.hide 
+{
+    display: none;
+}
+/*-------------------timkiem---------------------*/
+
+.item-name {
+    color: black;
+}
+
+.box-item {
+    margin: 5px 4px;
+    float: left;
+    border: 1px solid #f2f2f2;
+    padding: 2px;
+    width:inherit;
+}
+
+.img-thumbnail {
+    width: inherit;
+}
+
+.img-thumbnail img {
+    width: 100%;
+    height: 100%;
+}
+
+.info {
+    padding: 0 10px;
+}
+
+.info p {
+    font-size: large;
+}
+
+.contact {
+    padding: 0;
+}
+
+.contact li {
+    text-decoration: none;
+    list-style: none;
+    color: white;
+    font-size:larger;
+}
+
+.box-thucdon {
+    margin: 5vh auto 5vh;
+}
+
+.img-thucdon {
+}
+
+.box-thucdon-item {
+    margin-bottom: 2vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    border: 1px solid gray;
+}
+
+.thucdon-left {
+    float: left;
+}
+
+.thucdon-name {
+    font-size: large;
+    vertical-align: middle
+}
+
+.thucdon-right {
+    float: right;
+    display: inline-flex;
+}
+
+.thucdon-price {
+    display: inline-flex;
+    font-size: large;
+    padding-top: 11px;
+}
+
+.old-price {
+    font-size: medium;
+    text-decoration: line-through;
+    padding-right: 5px;
+    color: #b3b3b3;
+    padding-top: 2px;
+}
+
+.new-price {
+    padding-right: 5px;
+    color: #2e5cb8;
+}
+
+.button-add {
+    text-align: right;
+}
+
+h4.title {
+    color: black;
+    font-size: x-large;
+}

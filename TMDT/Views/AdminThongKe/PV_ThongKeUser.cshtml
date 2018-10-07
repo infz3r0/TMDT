@@ -1,0 +1,95 @@
+﻿@using TMDT.Models;
+@model List<V_ThongKeUser>
+<div class="content-table">
+    <h4 class="title">
+        @ViewBag.Take Người mua hàng nhiều nhất
+    </h4>
+    <h5 class="title">
+        Tháng @ViewBag.Month/@ViewBag.Year
+    </h5>
+    <div class="table-responsive table-statistic">
+        <table class="table table-bordered table-sm">
+            <thead class="thead-light">
+                <tr>
+                    <th>
+                        Username
+                    </th>
+                    <th>
+                        Họ tên
+                    </th>
+                    <th>
+                        Tổng thành tiền
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (V_ThongKeUser item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.Username
+                        </td>
+                        <td>
+                            @item.HoTen
+                        </td>
+                        <td>
+                            @item.TongThanhTien
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<canvas id="TaiKhoanChart" width="400" height="400"></canvas>
+@Scripts.Render("~/bundles/chartjs")
+<script>
+    var ctx = document.getElementById("TaiKhoanChart");
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: @Html.Raw(ViewBag.List_labels),
+            datasets: [{
+                yAxisID: 'tong-thanh-tien',
+                label: 'Tổng thành tiền',
+                data: @Html.Raw(ViewBag.List_data_TongThanhTien),
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            reponsive: true,
+            maintainAspectRatio: false,
+            title: {
+                display: true,
+                text: @ViewBag.Take + ' khách hàng mua nhiều nhất tháng ' + @ViewBag.Month + '/' + @ViewBag.Year,
+                fontSize: 24
+            },
+            scales: {
+                yAxes: [{
+                    id: 'tong-thanh-tien',
+                    type: 'linear',
+                    position: 'left',
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>

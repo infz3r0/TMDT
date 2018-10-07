@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Thông tin tài khoản";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<TMDT.Models.TaiKhoan>
+<h3 class="row justify-content-center ">THÔNG TIN TÀI KHOẢN</h3>
+<table class="table table-bordered table-hover table-striped" style="vertical-align:middle; font-size:14px">
+    <thead style="background-color:orange">
+        <tr>
+            <th class="center">
+                Họ tên
+            </th>
+            <th class="center">
+                Số điện thoại
+            </th>
+            <th class="center">
+                Email
+            </th>          
+            <th>Giới tính</th>
+            <th class="center">Tùy chọn</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr class="center">
+            <td style="vertical-align:middle" class="center">
+                @Html.DisplayFor(modelItem => item.HoTen)
+            </td>
+            <td style="vertical-align:middle" class="center">
+                @Html.DisplayFor(modelItem => item.Sdt)
+            </td>
+            <td style="vertical-align:middle" class="center">
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td class="center">@item.GioiTinh</td>
+
+
+            <td style="vertical-align:middle" class="center">                
+                <button class="btn btn-warning">@Html.ActionLink("Đổi MK", "DoiMatKhau", new { id = item.IDUser }) </button>
+            </td>
+        </tr>
+    }
+
+</table>

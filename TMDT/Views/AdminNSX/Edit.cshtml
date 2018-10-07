@@ -1,0 +1,53 @@
+﻿@model TMDT.Models.NSX
+@{
+    ViewBag.Title = "NSX";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    ViewBag.Name = "NSX";
+    ViewBag.ModelName = "NSX";
+}
+@helper GetName(string name)
+{
+    @String.Format("Ten{0}", name)
+}
+<div class="row">
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline-secondary" })
+</div>
+<h2 style="text-align:center">
+    Chỉnh sửa thông tin @ViewBag.Name
+</h2>
+<hr />
+<div class="row justify-content-center">
+    <div class="col col-sm-10 col-md-10 col-lg-8 col-xl-6">
+        @using (Html.BeginForm("Edit", "AdminNSX", new { id = Model.IDNSX }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.IDNSX)
+
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <input type="text" class="form-control form-control-lg" name="@GetName(ViewBag.ModelName)" placeholder="Nhập tên @ViewBag.Name" value="@Model.TenNSX" required autofocus>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" name="GioiThieu" rows="4" placeholder="Giới thiệu về NSX">@Model.GioiThieu</textarea>
+                </div>
+                <div class="form-group">
+                    <input type="file" class="form-control-file" name="fileUpload" accept="image/*" />
+                    <img src="@Url.Content("~/Images/NSX/" + Model.HinhAnh)" alt="@Model.HinhAnh" style="max-width:10vw; min-width:130px; width:10vw; height:auto" />
+                </div>
+                
+                <div class="form-group">
+                    @Html.Action("PV_Dropdown_Loai", "AdminNSX", new { idLoai = Model.IDLoai })
+                </div>
+                <div class="form-group">
+                    <div class="text-danger">@ViewBag.MessageFail</div>
+                    <div class="text-success">@ViewBag.MessageSuccess</div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Sửa" class="btn btn-outline-success" />
+                </div>
+            </div>
+        }
+    </div>
+</div>

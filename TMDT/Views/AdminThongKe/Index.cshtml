@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Main";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2 style="text-align:center">Thống kê</h2>
+<div class="row">
+    <div class="col-12">
+        <a href="@Url.Action("DoanhThu", "AdminThongKe")" class="box-link-custom">
+            <div class="border rounded box-custom">
+                <!--row 2 box 1-->
+                @Html.Action("PV_ThongKeDoanhThu", "AdminThongKe")
+            </div><!--row 2 box 1-->
+        </a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <a href="@Url.Action("SanPham", "AdminThongKe")" class="box-link-custom">
+            <div class="border rounded box-custom">
+                <!--row 1 box 1-->
+                @Html.Action("PV_ThongKeSanPham", "AdminThongKe")
+            </div><!--row 1 box 1-->
+        </a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <a href="@Url.Action("TaiKhoan", "AdminThongKe")" class="box-link-custom">
+            <div class="border rounded box-custom">
+                <!--row 2 box 1-->
+                @Html.Action("PV_ThongKeUser", "AdminThongKe")
+            </div><!--row 2 box 1-->
+        </a>
+    </div>
+</div>

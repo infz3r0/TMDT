@@ -1,0 +1,48 @@
+﻿@using TMDT.Models
+@model List<V_ThongKeUser>
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead class="thead-light">
+            <tr>
+                <th>
+                    Username
+                </th>
+                <th>
+                    Họ tên
+                </th>
+                <th>
+                    Tổng số đơn đặt hàng
+                </th>
+                <th>
+                    Tổng thành tiền
+                </th>
+                <th>
+                    Tổng số sản phẩm đã đặt
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (V_ThongKeUser item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Username
+                    </td>
+                    <td>
+                        @item.HoTen
+                    </td>
+                    <td>
+                        @item.TongSoDonDatHang
+                    </td>
+                    <td>
+                        @item.TongThanhTien
+                    </td>
+                    <td>
+                        @item.TongSanPham
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
