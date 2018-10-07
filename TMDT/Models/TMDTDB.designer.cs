@@ -66,7 +66,7 @@ namespace TMDT.Models
     #endregion
 		
 		public TMDTDBDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["TMDTConnectionString"].ConnectionString, mappingSource)
+				base(global::TMDT.Properties.Settings.Default.TMDTConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -181,6 +181,26 @@ namespace TMDT.Models
 			{
 				return this.GetTable<SanPham>();
 			}
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.p_ChangePassword")]
+		public int p_ChangePassword([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Username", DbType="VarChar(30)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(40)")] string password)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username, password);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.p_UpdateCaiDat")]
+		public int p_UpdateCaiDat([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenThamSo", DbType="VarChar(50)")] string tenThamSo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GiaTri", DbType="NVarChar(100)")] string giaTri)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tenThamSo, giaTri);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.f_GetIdentDatHang", IsComposable=true)]
+		public System.Nullable<int> f_GetIdentDatHang()
+		{
+			return ((System.Nullable<int>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod()))).ReturnValue));
 		}
 	}
 	
