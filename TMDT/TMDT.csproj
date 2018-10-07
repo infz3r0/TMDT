@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -67,9 +66,6 @@
     </Reference>
     <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.4\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -198,12 +194,22 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminCaiDatController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AdminKhuyenMaiController.cs" />
+    <Compile Include="Controllers\AdminLoaiController.cs" />
+    <Compile Include="Controllers\AdminNhomController.cs" />
+    <Compile Include="Controllers\AdminNSXController.cs" />
+    <Compile Include="Controllers\AdminSanPhamController.cs" />
+    <Compile Include="Controllers\AdminThongKeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NguoiDungController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Manager.cs" />
+    <Compile Include="MD5Cal.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -212,6 +218,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TMDTDB.dbml</DependentUpon>
     </Compile>
+    <Compile Include="MonthYear.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -374,9 +381,51 @@
     <Content Include="Views\NguoiDung\DoiMatKhau.cshtml" />
     <Content Include="Views\NguoiDung\TaiKhoan.cshtml" />
     <Content Include="Views\NguoiDung\ThongTinTK.cshtml" />
+    <Content Include="Views\Admin\ChangePassword.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Admin\Logs.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\AdminCaiDat\Index.cshtml" />
+    <Content Include="Views\AdminCaiDat\PV_Header.cshtml" />
+    <Content Include="Views\AdminKhuyenMai\Index.cshtml" />
+    <Content Include="Views\AdminKhuyenMai\Create.cshtml" />
+    <Content Include="Views\AdminKhuyenMai\Edit.cshtml" />
+    <Content Include="Views\AdminKhuyenMai\PV_Dropdown_SanPham.cshtml" />
+    <Content Include="Views\AdminLoai\Index.cshtml" />
+    <Content Include="Views\AdminLoai\Create.cshtml" />
+    <Content Include="Views\AdminLoai\Edit.cshtml" />
+    <Content Include="Views\AdminLoai\Details.cshtml" />
+    <Content Include="Views\AdminLoai\PV_Dropdown_Nhom.cshtml" />
+    <Content Include="Views\AdminNSX\Index.cshtml" />
+    <Content Include="Views\AdminNSX\Create.cshtml" />
+    <Content Include="Views\AdminNSX\Edit.cshtml" />
+    <Content Include="Views\AdminNSX\Details.cshtml" />
+    <Content Include="Views\AdminNSX\PV_Dropdown_Loai.cshtml" />
+    <Content Include="Views\AdminSanPham\Index.cshtml" />
+    <Content Include="Views\AdminSanPham\Create.cshtml" />
+    <Content Include="Views\AdminSanPham\Edit.cshtml" />
+    <Content Include="Views\AdminSanPham\Details.cshtml" />
+    <Content Include="Views\AdminSanPham\PV_Dropdown_NSX.cshtml" />
+    <Content Include="Views\AdminNhom\Index.cshtml" />
+    <Content Include="Views\AdminNhom\Create.cshtml" />
+    <Content Include="Views\AdminNhom\Edit.cshtml" />
+    <Content Include="Views\AdminNhom\Details.cshtml" />
+    <Content Include="Views\AdminThongKe\Index.cshtml" />
+    <Content Include="Views\AdminThongKe\SanPham.cshtml" />
+    <Content Include="Views\AdminThongKe\PV_ThongKeSanPham.cshtml" />
+    <Content Include="Views\AdminThongKe\PV_SanPhamByMonthYear.cshtml" />
+    <Content Include="Views\AdminThongKe\TaiKhoan.cshtml" />
+    <Content Include="Views\AdminThongKe\PV_ThongKeUser.cshtml" />
+    <Content Include="Views\AdminThongKe\PV_TaiKhoanByMonthYear.cshtml" />
+    <Content Include="Views\AdminThongKe\DoanhThu.cshtml" />
+    <Content Include="Views\AdminThongKe\PV_ThongKeDoanhThu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\LogoBanner\" />
+    <Folder Include="Images\NSX\" />
+    <Folder Include="Images\SanPham\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -419,12 +468,6 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

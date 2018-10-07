@@ -1,0 +1,78 @@
+﻿@model TMDT.Models.SanPham
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    ViewBag.Name = "sản phẩm";
+    ViewBag.ModelName = "SanPham";
+}
+@helper GetName(string name)
+{
+    @String.Format("Ten{0}", name)
+}
+<div class="row">
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline-secondary", style = "float:left" })
+</div>
+<h2 style="text-align:center">
+    Thông tin chi tiết
+</h2>
+<hr />
+<div class="row justify-content-center">
+    <div class="col col-sm-10 col-md-10 col-lg-8 col-xl-8">
+        <table class="table table-detail">
+            <tr>
+                <th>Tên sản phẩm:</th>
+                <td>@Model.TenSanPham</td>
+            </tr>
+            <tr>
+                <th>Hình ảnh:</th>
+                <td>
+                    <img src="@Url.Content("~/Images/SanPham/" + Model.HinhAnh)" alt="@Model.HinhAnh" style="max-width:10vw; min-width:130px; width:10vw; height:auto" />
+                </td>
+            </tr>
+            <tr>
+                <th>Đơn giá:</th>
+                <td>@Convert.ToDecimal(Model.DonGia).ToString("N0")đ</td>
+            </tr>
+            <tr>
+                <th>Phí vận chuyển:</th>
+                <td>@Convert.ToDecimal(Model.PhiVanChuyen).ToString("N0")đ/km</td>
+            </tr>
+            <tr>
+                <th>Số lượng đã đặt:</th>
+                <td>@Model.SoLuongDaDat</td>
+            </tr>
+            <tr>
+                <th>Món ăn:</th>
+                <td>@Model.NSX.TenNSX</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="table-detail-end-td">
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.IDSanPham }, new { @class = "btn btn-outline-secondary" })
+                    <a id="deleteItem" class="deleteItem btn btn-danger" data-target="#basic" data-toggle="modal" data-path="@Model.IDSanPham" href="#">Delete</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="modal fade" id="basic" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Xác nhận xóa</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có chắc chắn muốn xóa @ViewBag.Name này?</p>
+            </div>
+            <div class="modal-footer">
+                @using (Html.BeginForm("Delete", "AdminSanPham", FormMethod.Post))
+                {
+                    <input type="hidden" name="id" id="deleteID" value="" />
+                    <input type="submit" class="btn btn-danger btn-ok" value="Đồng ý xóa" />
+                }
+                <button type="button" class="btn btn-default" data-dismiss="modal">Không</button>
+            </div>
+        </div>
+    </div>
+</div>

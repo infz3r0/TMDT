@@ -1,0 +1,52 @@
+﻿@model TMDT.Models.KhuyenMai
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    ViewBag.Name = "khuyến mại";
+    ViewBag.ModelName = "KhuyenMai";
+}
+@helper GetName(string name)
+{
+    @String.Format("Ten{0}", name)
+}
+<div class="row">
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline-secondary", style = "float:left" })
+</div>
+<h2 style="text-align:center">
+    Chỉnh sửa thông tin @ViewBag.Name
+</h2>
+<hr />
+<div class="row justify-content-center">
+    <div class="col col-sm-10 col-md-10 col-lg-8 col-xl-6">
+        @using (Html.BeginForm("Edit", "AdminKhuyenMai", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.Action("PV_Dropdown_SanPham", "AdminKhuyenMai", new { idSanPham = Model.IDSanPham })
+                </div>
+                <div class="form-group">
+                    <input type="number" min="0" max="100" class="form-control" name="GiamGia" id="GiamGia" placeholder="Nhập % khuyến mại" value="@Convert.ToDouble(Model.GiamGia)" required />
+                </div>
+                <div class="form-group row">
+                    @Html.Label("DonGia", "Đơn giá: ", new { @class = "col-form-label col-4" })
+                    <input type="text" class="form-control-plaintext col-8" name="DonGia" id="DonGia" placeholder="0đ" readonly />
+                </div>
+                <div class="form-group row">
+                    @Html.Label("GiaKhuyenMai", "Giá khuyến mại: ", new { @class = "col-form-label col-4" })
+                    <input type="text" class="form-control-plaintext col-8" name="GiaKhuyenMai" id="GiaKhuyenMai" placeholder="0đ" readonly />
+                </div>
+                <div class="form-group">
+                    <div class="text-danger">@ViewBag.MessageFail</div>
+                    <div class="text-success">@ViewBag.MessageSuccess</div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Sửa" class="btn btn-outline-success" />
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@*Thêm chức năng: ViewBag mất đi khi nhập vào input*@

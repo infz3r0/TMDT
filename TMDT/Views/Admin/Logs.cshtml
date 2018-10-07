@@ -1,0 +1,46 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<TMDT.Models.LogLogin>
+@{
+                /**/
+
+                /**/
+
+                ViewBag.Title = "Logs";
+                Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2 style="text-align:center">Lịch sử đăng nhập</h2>
+<div class="table-responsive">
+    <table class="table table-bordered table-hover table-sm">
+        <thead class="thead-light">
+            <tr>
+                <th class="cell-center-middle">
+                    ID
+                </th>
+                <th class="cell-center-middle">
+                    Username
+                </th>
+                <th class="cell-center-middle">
+                    Thời gian
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td class="cell-center-middle">
+                    @Html.DisplayFor(modelItem => item.IDLog)
+                </td>
+                <td class="cell-center-middle">
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td class="cell-center-middle">
+                    @Convert.ToDateTime(item.LoginTime).ToString("MMM-dd-yyyy H:mm:ss")
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@Html.PagedListPager(Model, page => Url.Action("Logs", new { page }))
+

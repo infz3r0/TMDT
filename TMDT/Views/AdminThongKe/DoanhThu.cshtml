@@ -1,0 +1,47 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<TMDT.Models.V_ThongKeDoanhThu>
+@{
+    /**/
+
+    ViewBag.Title = "Thống kê doanh thu";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    @Html.ActionLink("Trở lại thống kê", "Index", null, new { @class = "btn btn-outline-secondary", style = "float:left" })
+</div>
+<h2 style="text-align:center">@ViewBag.Title</h2>
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+            <tr>
+                <th class="cell-center-middle">
+                    Tháng/Năm
+                </th>
+                <th class="cell-center-middle">
+                    Tổng số đơn đặt hàng
+                </th>
+                <th class="cell-center-middle">
+                    Tổng doanh thu
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="cell-center-middle">
+                        @item.Thang/@item.Nam
+                    </td>
+                    <td class="cell-center-middle">
+                        @Html.DisplayFor(modelItem => item.TongSoDonDatHang)
+                    </td>
+                    <td class="cell-center-middle">
+                        @Convert.ToDecimal(item.TongDoanhThu).ToString("N0")đ
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@Html.PagedListPager(Model, page => Url.Action("DoanhThu", new { page }))

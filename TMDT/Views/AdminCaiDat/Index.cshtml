@@ -1,0 +1,65 @@
+﻿@using TMDT.Models;
+@model List<TMDT.Models.CaiDat>
+@{
+    ViewBag.Title = "Cài đặt";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2 class="text-center">@ViewBag.Title</h2>
+@using (Html.BeginForm("ApplyConfig", "AdminCaiDat", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @foreach (CaiDat c in Model)
+        {
+            <div class="form-group row">
+                @Html.Label(c.HienThi, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @if (c.TenThamSo.Contains("hinh"))
+                    {
+                        <input type="hidden" name="@c.TenThamSo" value="@c.GiaTri" />
+                        <input type="file" name="fileUpload" class="form-control-file" accept="image/*" />
+                        <div>
+                            <img src="@Url.Content("~/Images/LogoBanner/" + c.GiaTri)" style="width:auto; height:20vh" />
+                        </div>
+                    }
+                    else
+                    {
+                        <input type="text" class="form-control" name="@c.TenThamSo" value="@c.GiaTri" required />
+                    }
+                </div>
+            </div>
+            if (ViewData["Error" + c.TenThamSo] != null)
+            {
+                <div class="form-group row">
+                    <div class="col-md-12 alert alert-danger">
+                        @ViewData["Error" + c.TenThamSo].ToString()
+                    </div>
+                </div>
+            }
+        }
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Apply" class="btn btn-primary" />
+            </div>
+        </div>
+        @if (!string.IsNullOrEmpty(ViewBag.Error))
+        {
+            <div class="form-group">
+                <div class="alert alert-danger">
+                    @ViewBag.Error
+                </div>
+            </div>
+        }
+        @if (!string.IsNullOrEmpty(ViewBag.Result))
+        {
+            <div class="form-group">
+                <div class="alert alert-success">
+                    @ViewBag.Result
+                </div>
+            </div>
+        }
+    </div>
+}

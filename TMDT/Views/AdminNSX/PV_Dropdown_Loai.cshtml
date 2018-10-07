@@ -1,0 +1,15 @@
+﻿@using TMDT.Models
+@model List<Loai>
+<select class="form-control form-control-lg" name="IDLoai">
+    @foreach (Loai item in Model)
+    {
+        if (item.IDLoai == Convert.ToInt32(ViewBag.idLoai))
+        {
+            <option value="@item.IDLoai" selected>@item.TenLoai</option>
+        }
+        else
+        {
+            <option value="@item.IDLoai">@item.TenLoai</option>
+        }
+    }
+</select>
