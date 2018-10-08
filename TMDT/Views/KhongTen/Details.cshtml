@@ -19,14 +19,18 @@
 
         <div class="col-md-8 col-sm-4" style="padding-top: 1vh;">
             <h4 style="font-weight:bold; color:red">Tên Sản Phẩm: @Model.TenSanPham</h4>
-            @*<p style="text-align:justify"><span style="font-weight:bold">Giới Thiệu Sản Phẩm: </span>@Model.GioiThieu</p>*@
+            <p style="text-align:justify"><span style="font-weight:bold">Giới Thiệu Sản Phẩm: </span>@Model.MoTaSanPham</p>
         </div>
 
-            
+        <div class="button-add">
+            <a href="@Url.Action("ThemGiohang", "GioHang", new { iIDSanPham = Model.IDSanPham, strURL = Request.Url})" class="btn btn-danger">
+                <span style="font-weight:bold">+</span>
+            </a>
+        </div>   
     </div>
 
 </div>
-
+<hr/>
 @*<div class="container">
     <div class="row">
         <div class="col">

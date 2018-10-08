@@ -97,7 +97,7 @@
       <Column Name="IDNhom" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="TenNhom" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="SoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Nhom_Alias" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NhomAlias" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Association Name="Nhom_Loai" Member="Loais" ThisKey="IDNhom" OtherKey="IDNhom" Type="Loai" />
     </Type>
   </Table>
@@ -107,7 +107,7 @@
       <Column Name="TenLoai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="IDNhom" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="SoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Loai_Alias" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LoaiAlias" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Association Name="Loai_NSX" Member="NSXes" ThisKey="IDLoai" OtherKey="IDLoai" Type="NSX" />
       <Association Name="Nhom_Loai" Member="Nhom" ThisKey="IDNhom" OtherKey="IDNhom" Type="Nhom" IsForeignKey="true" />
     </Type>
@@ -119,7 +119,7 @@
       <Column Name="GioiThieu" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="HinhAnh" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="IDLoai" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="NSX_Alias" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="NSXAlias" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Association Name="NSX_SanPham" Member="SanPhams" ThisKey="IDNSX" OtherKey="IDNSX" Type="SanPham" />
       <Association Name="Loai_NSX" Member="Loai" ThisKey="IDLoai" OtherKey="IDLoai" Type="Loai" IsForeignKey="true" />
     </Type>
@@ -134,8 +134,8 @@
       <Column Name="PhiVanChuyen" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
       <Column Name="NgayCapNhat" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="IDNSX" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="SanPham_Alias" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="MoTaSanPham" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SanPhamAlias" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Association Name="SanPham_ChiTietDatHang" Member="ChiTietDatHangs" ThisKey="IDSanPham" OtherKey="IDSanPham" Type="ChiTietDatHang" />
       <Association Name="SanPham_KhuyenMai" Member="KhuyenMai" ThisKey="IDSanPham" OtherKey="IDSanPham" Type="KhuyenMai" Cardinality="One" />
       <Association Name="NSX_SanPham" Member="NSX" ThisKey="IDNSX" OtherKey="IDNSX" Type="NSX" IsForeignKey="true" />

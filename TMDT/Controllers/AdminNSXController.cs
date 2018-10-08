@@ -45,6 +45,7 @@ namespace TMDT.Controllers
             string tenNSX = form["TenNSX"];
             string gioiThieu = form["GioiThieu"];
             int idLoai = Convert.ToInt32(form["IDLoai"]);
+            string alias = form["NSXAlias"];
 
             ViewBag.MessageFail = string.Empty;
             if (string.IsNullOrWhiteSpace(tenNSX))
@@ -86,6 +87,7 @@ namespace TMDT.Controllers
             NSX.GioiThieu = gioiThieu;
             NSX.HinhAnh = _FileName;
             NSX.IDLoai = idLoai;
+            NSX.NSXAlias = alias;
 
             if (ModelState.IsValid)
             {
@@ -116,6 +118,7 @@ namespace TMDT.Controllers
         {
             string tenNSX = form["TenNSX"];
             int id = Convert.ToInt32(form["IDNSX"]);
+            string alias = form["NSXAlias"];
 
             NSX NSX = data.NSXes.SingleOrDefault(i => i.IDNSX == id);
 

@@ -45,6 +45,8 @@ namespace TMDT.Controllers
             decimal donGia = Convert.ToDecimal(form["DonGia"]);
             decimal phiVanChuyen = Convert.ToDecimal(form["PhiVanChuyen"]);
             int idNSX = Convert.ToInt32(form["IDNSX"]);
+            string alias = form["SanPhamAlias"];
+            string moTa = form["MoTaSanPham"];
 
             ViewBag.MessageFail = string.Empty;
             if (string.IsNullOrWhiteSpace(tenSanPham))
@@ -95,6 +97,8 @@ namespace TMDT.Controllers
             SanPham.PhiVanChuyen = phiVanChuyen;
             SanPham.SoLuongDaDat = 0;
             SanPham.IDNSX = idNSX;
+            SanPham.SanPhamAlias = alias;
+            SanPham.MoTaSanPham = moTa;
 
             if (ModelState.IsValid)
             {
@@ -127,6 +131,8 @@ namespace TMDT.Controllers
             decimal donGia = Convert.ToDecimal(form["DonGia"]);
             decimal phiVanChuyen = Convert.ToDecimal(form["PhiVanChuyen"]);
             int idSanPham = Convert.ToInt32(form["IDSanPham"]);
+            string alias = form["SanPhamAlias"];
+            string moTa = form["MoTaSanPham"];
 
             SanPham SanPham = data.SanPhams.SingleOrDefault(i => i.IDSanPham == idSanPham);
 

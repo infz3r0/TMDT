@@ -202,9 +202,9 @@
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhongTenController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />	
+    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NguoiDungController.cs" />
-	<Compile Include="Controllers\AdminCaiDatController.cs" />
+    <Compile Include="Controllers\AdminCaiDatController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AdminKhuyenMaiController.cs" />
     <Compile Include="Controllers\AdminLoaiController.cs" />
@@ -215,9 +215,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-	<Compile Include="Manager.cs" />
+    <Compile Include="Manager.cs" />
     <Compile Include="MD5Cal.cs" />
-	<Compile Include="MonthYear.cs" />
+    <Compile Include="MonthYear.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\GioHang.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -349,7 +349,7 @@
     <Content Include="Views\KhongTen\Index.cshtml" />
     <Content Include="Views\KhongTen\Details.cshtml" />
     <Content Include="Views\KhongTen\PartialNavbarItem.cshtml" />
-    <Content Include="Views\KhongTen\sanphantheonsx.cshtml" />
+    <Content Include="Views\KhongTen\SanPhamTheoNSX.cshtml" />
     <Content Include="Views\KhongTen\PartialDropdownLoai.cshtml" />
     <Content Include="Views\KhongTen\NSXtheoLoai.cshtml" />
     <Content Include="Views\KhongTen\PartialDropdownNSX.cshtml" />
@@ -357,13 +357,13 @@
     <Content Include="Views\GioHang\GiohangPartial.cshtml" />
     <Content Include="Views\GioHang\DatHang.cshtml" />
     <Content Include="Views\GioHang\Xacnhandonhang.cshtml" />
-	<Content Include="Views\NguoiDung\DangKy.cshtml" />
+    <Content Include="Views\NguoiDung\DangKy.cshtml" />
     <Content Include="Views\NguoiDung\DangNhap.cshtml" />
     <Content Include="Views\NguoiDung\HienTenDN.cshtml" />
     <Content Include="Views\NguoiDung\DoiMatKhau.cshtml" />
     <Content Include="Views\NguoiDung\TaiKhoan.cshtml" />
     <Content Include="Views\NguoiDung\ThongTinTK.cshtml" />
-	<Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\Admin\Logs.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />

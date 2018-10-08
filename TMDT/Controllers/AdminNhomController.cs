@@ -42,6 +42,7 @@ namespace TMDT.Controllers
         public ActionResult Create(FormCollection form)
         {
             string tenNhom = form["TenNhom"];
+            string alias = form["NhomAlias"];
             if (string.IsNullOrWhiteSpace(tenNhom))
             {
                 ViewBag.MessageFail = "Tên nhóm không hợp lệ";
@@ -50,6 +51,7 @@ namespace TMDT.Controllers
             Nhom nhom = new Nhom();
             nhom.TenNhom = tenNhom;
             nhom.SoLuong = 0;
+            nhom.NhomAlias = alias;
             if (ModelState.IsValid)
             {
                 data.Nhoms.InsertOnSubmit(nhom);
@@ -79,7 +81,9 @@ namespace TMDT.Controllers
         {
             string tenNhom = form["TenNhom"];
             int id = Convert.ToInt32(form["IDNhom"]);
+            string alias = form["NhomAlias"];
             Nhom nhom = data.Nhoms.SingleOrDefault(i => i.IDNhom == id);
+            
 
             if (string.IsNullOrWhiteSpace(tenNhom))
             {

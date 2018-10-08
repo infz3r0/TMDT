@@ -43,6 +43,7 @@ namespace TMDT.Controllers
         {
             string tenLoai = form["TenLoai"];
             int idNhom = Convert.ToInt32(form["IDNhom"]);
+            string alias = form["LoaiAlias"];
 
             if (string.IsNullOrWhiteSpace(tenLoai))
             {
@@ -54,6 +55,8 @@ namespace TMDT.Controllers
             loai.TenLoai = tenLoai;
             loai.IDNhom = idNhom;
             loai.SoLuong = 0;
+            loai.LoaiAlias = alias;
+
             if (ModelState.IsValid)
             {
                 data.Loais.InsertOnSubmit(loai);
@@ -83,6 +86,7 @@ namespace TMDT.Controllers
         {
             string tenLoai = form["TenLoai"];
             int id = Convert.ToInt32(form["IDLoai"]);
+            string alias = form["LoaiAlias"];
             Loai loai = data.Loais.SingleOrDefault(i => i.IDLoai == id);
 
             if (string.IsNullOrWhiteSpace(tenLoai))

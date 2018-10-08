@@ -72,7 +72,7 @@ namespace TMDT.Controllers
             {
                 ViewBag.ThongBao = "Đăng nhập thành công";
                 Session["Username"] = tk;
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "KhongTen");
             }
             else
                 ViewBag.Thongbao = "Sai thông tin đăng nhập, vui lòng kiểm tra lại!";

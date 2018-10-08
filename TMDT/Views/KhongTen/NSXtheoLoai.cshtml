@@ -17,7 +17,7 @@
                 @foreach (NSX item in Model)
                 {
                     <div class="col-md-4 col-sm-12">
-                        <a class="item-name" href="@Url.Action("Details", "KhongTen", new { id = item.IDNSX })">
+                        <a class="item-name" href="/r/@item.Loai.LoaiAlias/@item.NSXAlias">
                             <div class="box-item">
                                 <div class="img-thumbnail">
                                     <img src="@Url.Content("~/Images/NSX/" + item.HinhAnh)" />
@@ -34,7 +34,7 @@
     </div>
 
 
-    @Html.PagedListPager(Model, page => Url.Action("NSXtheoLoai", new { page, idloai = Model[0].IDLoai }))
+    @Html.PagedListPager(Model, page => Url.Action("NSXtheoLoai", new { page, loaiAlias = Model[0].Loai.LoaiAlias }))
 </section>
 
 @*<div class="container">

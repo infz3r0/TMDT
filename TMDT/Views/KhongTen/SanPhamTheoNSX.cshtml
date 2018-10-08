@@ -18,7 +18,7 @@
                 @foreach (SanPham item in Model)
                 {
                     <div class="col-md-4 col-sm-12">
-                        <a class="item-name" href="@Url.Action("Details", "KhongTen", new { id = item.IDSanPham })">
+                        <a class="item-name" href="/r/@item.NSX.Loai.LoaiAlias/@item.NSX.NSXAlias/@item.SanPhamAlias">
                             <div class="box-item">
                                 <div class="img-thumbnail">
                                     <img src="@Url.Content("~/Images/SanPham/" + item.HinhAnh)" />

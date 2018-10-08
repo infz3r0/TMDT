@@ -36,7 +36,9 @@
                     <input type="file" class="form-control-file" name="fileUpload" accept="image/*" />
                     <img src="@Url.Content("~/Images/NSX/" + Model.HinhAnh)" alt="@Model.HinhAnh" style="max-width:10vw; min-width:130px; width:10vw; height:auto" />
                 </div>
-                
+                <div class="form-group">
+                    <input type="text" class="form-control form-control-lg" name="@(ViewBag.ModelName)Alias" placeholder="Nhập alias @ViewBag.Name" required>
+                </div>
                 <div class="form-group">
                     @Html.Action("PV_Dropdown_Loai", "AdminNSX", new { idLoai = Model.IDLoai })
                 </div>

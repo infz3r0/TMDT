@@ -40,7 +40,6 @@
                             <td style="vertical-align:middle">@String.Format("{0:0,0}", @item.dDonGia)</td>
                             <td style="vertical-align:middle">@String.Format("{0:0,0}", @item.dThanhTien)</td>
                             <td style="vertical-align:middle">
-                                <a class="btn btn-outline-primary" href="@Url.Action("Details","KhongTen", new { id = item.iIDSanPham})">Chi tiết</a>
                                 <input type="submit" class="btn btn-outline-success" value="Cập nhật" />
                                 <button class="btn btn-warning">@Html.ActionLink("Xóa", "XoaGioHang", new { @iMaSP = item.iIDSanPham })</button>
                             </td>

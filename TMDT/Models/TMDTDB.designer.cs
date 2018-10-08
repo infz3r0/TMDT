@@ -1776,7 +1776,7 @@ namespace TMDT.Models
 		
 		private System.Nullable<int> _SoLuong;
 		
-		private string _Nhom_Alias;
+		private string _NhomAlias;
 		
 		private EntitySet<Loai> _Loais;
 		
@@ -1790,8 +1790,8 @@ namespace TMDT.Models
     partial void OnTenNhomChanged();
     partial void OnSoLuongChanging(System.Nullable<int> value);
     partial void OnSoLuongChanged();
-    partial void OnNhom_AliasChanging(string value);
-    partial void OnNhom_AliasChanged();
+    partial void OnNhomAliasChanging(string value);
+    partial void OnNhomAliasChanged();
     #endregion
 		
 		public Nhom()
@@ -1860,22 +1860,22 @@ namespace TMDT.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nhom_Alias", DbType="VarChar(50)")]
-		public string Nhom_Alias
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NhomAlias", DbType="VarChar(50)")]
+		public string NhomAlias
 		{
 			get
 			{
-				return this._Nhom_Alias;
+				return this._NhomAlias;
 			}
 			set
 			{
-				if ((this._Nhom_Alias != value))
+				if ((this._NhomAlias != value))
 				{
-					this.OnNhom_AliasChanging(value);
+					this.OnNhomAliasChanging(value);
 					this.SendPropertyChanging();
-					this._Nhom_Alias = value;
-					this.SendPropertyChanged("Nhom_Alias");
-					this.OnNhom_AliasChanged();
+					this._NhomAlias = value;
+					this.SendPropertyChanged("NhomAlias");
+					this.OnNhomAliasChanged();
 				}
 			}
 		}
@@ -1940,7 +1940,7 @@ namespace TMDT.Models
 		
 		private System.Nullable<int> _SoLuong;
 		
-		private string _Loai_Alias;
+		private string _LoaiAlias;
 		
 		private EntitySet<NSX> _NSXes;
 		
@@ -1958,8 +1958,8 @@ namespace TMDT.Models
     partial void OnIDNhomChanged();
     partial void OnSoLuongChanging(System.Nullable<int> value);
     partial void OnSoLuongChanged();
-    partial void OnLoai_AliasChanging(string value);
-    partial void OnLoai_AliasChanged();
+    partial void OnLoaiAliasChanging(string value);
+    partial void OnLoaiAliasChanged();
     #endregion
 		
 		public Loai()
@@ -2053,22 +2053,22 @@ namespace TMDT.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Loai_Alias", DbType="VarChar(50)")]
-		public string Loai_Alias
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoaiAlias", DbType="VarChar(50)")]
+		public string LoaiAlias
 		{
 			get
 			{
-				return this._Loai_Alias;
+				return this._LoaiAlias;
 			}
 			set
 			{
-				if ((this._Loai_Alias != value))
+				if ((this._LoaiAlias != value))
 				{
-					this.OnLoai_AliasChanging(value);
+					this.OnLoaiAliasChanging(value);
 					this.SendPropertyChanging();
-					this._Loai_Alias = value;
-					this.SendPropertyChanged("Loai_Alias");
-					this.OnLoai_AliasChanged();
+					this._LoaiAlias = value;
+					this.SendPropertyChanged("LoaiAlias");
+					this.OnLoaiAliasChanged();
 				}
 			}
 		}
@@ -2169,7 +2169,7 @@ namespace TMDT.Models
 		
 		private System.Nullable<int> _IDLoai;
 		
-		private string _NSX_Alias;
+		private string _NSXAlias;
 		
 		private EntitySet<SanPham> _SanPhams;
 		
@@ -2189,8 +2189,8 @@ namespace TMDT.Models
     partial void OnHinhAnhChanged();
     partial void OnIDLoaiChanging(System.Nullable<int> value);
     partial void OnIDLoaiChanged();
-    partial void OnNSX_AliasChanging(string value);
-    partial void OnNSX_AliasChanged();
+    partial void OnNSXAliasChanging(string value);
+    partial void OnNSXAliasChanged();
     #endregion
 		
 		public NSX()
@@ -2304,22 +2304,22 @@ namespace TMDT.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NSX_Alias", DbType="VarChar(100)")]
-		public string NSX_Alias
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NSXAlias", DbType="VarChar(100)")]
+		public string NSXAlias
 		{
 			get
 			{
-				return this._NSX_Alias;
+				return this._NSXAlias;
 			}
 			set
 			{
-				if ((this._NSX_Alias != value))
+				if ((this._NSXAlias != value))
 				{
-					this.OnNSX_AliasChanging(value);
+					this.OnNSXAliasChanging(value);
 					this.SendPropertyChanging();
-					this._NSX_Alias = value;
-					this.SendPropertyChanged("NSX_Alias");
-					this.OnNSX_AliasChanged();
+					this._NSXAlias = value;
+					this.SendPropertyChanged("NSXAlias");
+					this.OnNSXAliasChanged();
 				}
 			}
 		}
@@ -2426,9 +2426,9 @@ namespace TMDT.Models
 		
 		private System.Nullable<int> _IDNSX;
 		
-		private string _SanPham_Alias;
-		
 		private string _MoTaSanPham;
+		
+		private string _SanPhamAlias;
 		
 		private EntitySet<ChiTietDatHang> _ChiTietDatHangs;
 		
@@ -2456,10 +2456,10 @@ namespace TMDT.Models
     partial void OnNgayCapNhatChanged();
     partial void OnIDNSXChanging(System.Nullable<int> value);
     partial void OnIDNSXChanged();
-    partial void OnSanPham_AliasChanging(string value);
-    partial void OnSanPham_AliasChanged();
     partial void OnMoTaSanPhamChanging(string value);
     partial void OnMoTaSanPhamChanged();
+    partial void OnSanPhamAliasChanging(string value);
+    partial void OnSanPhamAliasChanged();
     #endregion
 		
 		public SanPham()
@@ -2634,26 +2634,6 @@ namespace TMDT.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SanPham_Alias", DbType="VarChar(100)")]
-		public string SanPham_Alias
-		{
-			get
-			{
-				return this._SanPham_Alias;
-			}
-			set
-			{
-				if ((this._SanPham_Alias != value))
-				{
-					this.OnSanPham_AliasChanging(value);
-					this.SendPropertyChanging();
-					this._SanPham_Alias = value;
-					this.SendPropertyChanged("SanPham_Alias");
-					this.OnSanPham_AliasChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MoTaSanPham", DbType="NVarChar(MAX)")]
 		public string MoTaSanPham
 		{
@@ -2670,6 +2650,26 @@ namespace TMDT.Models
 					this._MoTaSanPham = value;
 					this.SendPropertyChanged("MoTaSanPham");
 					this.OnMoTaSanPhamChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SanPhamAlias", DbType="VarChar(100)")]
+		public string SanPhamAlias
+		{
+			get
+			{
+				return this._SanPhamAlias;
+			}
+			set
+			{
+				if ((this._SanPhamAlias != value))
+				{
+					this.OnSanPhamAliasChanging(value);
+					this.SendPropertyChanging();
+					this._SanPhamAlias = value;
+					this.SendPropertyChanged("SanPhamAlias");
+					this.OnSanPhamAliasChanged();
 				}
 			}
 		}

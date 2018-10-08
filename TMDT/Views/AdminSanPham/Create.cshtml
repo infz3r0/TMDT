@@ -28,6 +28,9 @@
                 <input type="text" class="form-control form-control-lg" name="@GetName(ViewBag.ModelName)" placeholder="Nhập tên @ViewBag.Name" required autofocus>
             </div>
             <div class="form-group">
+                <input type="text" class="form-control form-control-lg" name="MoTaSanPham" placeholder="Nhập mô tả" required>
+            </div>
+            <div class="form-group">
                 <input type="file" class="form-control-file" name="HinhAnh" accept="image/*" />
             </div>
             <div class="form-group">
@@ -35,6 +38,9 @@
             </div>
             <div class="form-group">
                 <input type="number" min="0" step="500" class="form-control" name="PhiVanChuyen" placeholder="Nhập phí vận chuyển" required />
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control form-control-lg" name="@(ViewBag.ModelName)Alias" placeholder="Nhập alias @ViewBag.Name" required>
             </div>
             <div class="form-group">
                 @Html.Action("PV_Dropdown_NSX", "AdminSanPham")

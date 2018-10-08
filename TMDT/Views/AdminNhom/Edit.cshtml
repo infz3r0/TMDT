@@ -25,16 +25,19 @@
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.IDNhom)
 
-            <div class="form-horizontal">
-                <div class="form-group">
-                    <input type="text" class="form-control form-control-lg" name="@GetName(ViewBag.ModelName)" placeholder="Nhập tên @ViewBag.Name" value="@Model.TenNhom" required autofocus>
-                    <div class="text-danger">@ViewBag.MessageFail</div>
-                    <div class="text-success">@ViewBag.MessageSuccess</div>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Sửa" class="btn btn-outline-success" />
-                </div>
+        <div class="form-horizontal">
+            <div class="form-group">
+                <input type="text" class="form-control form-control-lg" name="@GetName(ViewBag.ModelName)" placeholder="Nhập tên @ViewBag.Name" value="@Model.TenNhom" required autofocus>
+                 <div class="text-danger">@ViewBag.MessageFail</div>
+                <div class="text-success">@ViewBag.MessageSuccess</div>
             </div>
+            <div class="form-group">
+                <input type="text" class="form-control form-control-lg" name="@(ViewBag.ModelName)Alias" placeholder="Nhập alias @ViewBag.Name" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Sửa" class="btn btn-outline-success" />
+            </div>
+        </div>
         }
     </div>
 </div>

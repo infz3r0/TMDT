@@ -31,6 +31,9 @@
 
                 </div>
                 <div class="form-group">
+                    <input type="text" class="form-control form-control-lg" name="@(ViewBag.ModelName)Alias" placeholder="Nhập alias @ViewBag.Name" required>
+                </div>
+                <div class="form-group">
                     @Html.Action("PV_Dropdown_Nhom", "AdminLoai", new { idNhom = Model.IDNhom })
                     <div class="text-success">@ViewBag.MessageSuccess</div>
                 </div>
