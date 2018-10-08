@@ -30,7 +30,7 @@
                 <input type="text" class="form-control form-control-lg" name="@GetName(ViewBag.ModelName)" placeholder="Nhập tên @ViewBag.Name" value="@Model.TenSanPham" required autofocus>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control form-control-lg" name="MoTaSanPham" placeholder="Nhập mô tả" required>
+                <input type="text" class="form-control form-control-lg" name="MoTaSanPham" placeholder="Nhập mô tả" value="@Model.MoTaSanPham" required>
             </div>
             <div class="form-group">
                 <input type="file" class="form-control-file" name="fileUpload" accept="image/*" />
@@ -43,10 +43,10 @@
                 <input type="number" min="0" step="500" class="form-control" name="PhiVanChuyen" placeholder="Nhập phí vận chuyển" value="@Model.PhiVanChuyen" required />
             </div>
             <div class="form-group">
-                <input type="text" class="form-control form-control-lg" name="@(ViewBag.ModelName)Alias" placeholder="Nhập alias @ViewBag.Name" required>
+                <input type="text" class="form-control form-control-lg" name="@(ViewBag.ModelName)Alias" placeholder="Nhập alias @ViewBag.Name" value="@Model.SanPhamAlias" required>
             </div>
             <div class="form-group">
-                @Html.Action("PV_Dropdown_NSX", "AdminSanPham", new { id = Model.IDNSX })
+                @Html.Action("PV_Dropdown_NSX", "AdminSanPham", new { idNSX = Model.IDNSX })
             </div>
             <div class="form-group">
                 <div class="text-danger">@ViewBag.MessageFail</div>
