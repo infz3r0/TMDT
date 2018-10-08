@@ -85,6 +85,7 @@
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -201,6 +202,8 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Common\Helper.cs" />
+    <Compile Include="Common\RSSActionResult.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Configuration.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
@@ -216,6 +219,7 @@
     <Compile Include="Controllers\AdminNSXController.cs" />
     <Compile Include="Controllers\AdminSanPhamController.cs" />
     <Compile Include="Controllers\AdminThongKeController.cs" />
+    <Compile Include="Controllers\RSSController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -405,6 +409,7 @@
     <Content Include="Views\AdminThongKe\PV_TaiKhoanByMonthYear.cshtml" />
     <Content Include="Views\AdminThongKe\DoanhThu.cshtml" />
     <Content Include="Views\AdminThongKe\PV_ThongKeDoanhThu.cshtml" />
+    <Content Include="Views\RSS\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

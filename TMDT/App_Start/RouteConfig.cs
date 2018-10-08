@@ -13,6 +13,19 @@ namespace TMDT
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+
+            routes.MapRoute(
+                name: "RSS",
+                url: "rss",
+                defaults: new { controller = "RSS", action = "Index" }
+            );
+
+            routes.MapRoute(
+                name: "RSS Feed",
+                url: "rss/{nsxAlias}",
+                defaults: new { controller = "RSS", action = "PostFeed" }
+            );
+
             routes.MapRoute(
                 name: "Detail San pham",
                 url: "r/{loaiAlias}/{nsxAlias}/{spAlias}",

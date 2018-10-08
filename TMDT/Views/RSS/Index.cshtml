@@ -1,0 +1,31 @@
+﻿@model IEnumerable<TMDT.Models.NSX>
+
+@{
+    ViewBag.Title = "RSS";
+    Layout = "~/Views/Shared/_LayoutKhongTen.cshtml";
+}
+
+<h2 class="text-center">RSS NSX</h2>
+
+<table class="table table-striped" style="">
+    <tr>
+        <th>
+            Tên NSX
+        </th>
+        <th>
+            RSS
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenNSX)
+        </td>
+        <td>
+            <a href="/rss/@item.NSXAlias" class="btn btn-sm btn-warning">RSS @item.NSXAlias</a>
+        </td>
+    </tr>
+}
+
+</table>
