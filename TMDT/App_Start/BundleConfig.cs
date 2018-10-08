@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace NPL
+namespace TMDT
 {
     public class BundleConfig
     {
