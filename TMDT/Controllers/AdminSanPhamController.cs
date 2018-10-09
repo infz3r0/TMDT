@@ -53,14 +53,6 @@ namespace TMDT.Controllers
             {
                 ViewBag.MessageFail += "Tên sản phẩm không hợp lệ. ";
             }
-            if (Convert.ToInt32(donGia) % 500 != 0)
-            {
-                ViewBag.MessageFail += "Đơn giá không hợp lệ. ";
-            }
-            if (Convert.ToInt32(phiVanChuyen) % 500 != 0)
-            {
-                ViewBag.MessageFail += "Phí vận chuyển không hợp lệ. ";
-            }
             if (!string.IsNullOrEmpty(ViewBag.MessageFail))
             {
                 return View();
@@ -140,14 +132,6 @@ namespace TMDT.Controllers
             if (string.IsNullOrWhiteSpace(tenSanPham))
             {
                 ViewBag.MessageFail += "Tên sản phẩm không hợp lệ. ";
-            }
-            if (Convert.ToInt32(donGia) % 500 != 0)
-            {
-                ViewBag.MessageFail += "Đơn giá không hợp lệ. ";
-            }
-            if (Convert.ToInt32(phiVanChuyen) % 500 != 0)
-            {
-                ViewBag.MessageFail += "Phí vận chuyển không hợp lệ. ";
             }
             if (!string.IsNullOrEmpty(ViewBag.MessageFail))
             {

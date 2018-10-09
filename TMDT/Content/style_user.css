@@ -276,7 +276,7 @@ ul.navigation a:focus
 }
 
 .old-price {
-    font-size: medium;
+    font-size: small;
     text-decoration: line-through;
     padding-right: 5px;
     color: #b3b3b3;
@@ -284,6 +284,7 @@ ul.navigation a:focus
 }
 
 .new-price {
+	font-size: x-large;
     padding-right: 5px;
     color: #2e5cb8;
 }

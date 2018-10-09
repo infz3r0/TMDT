@@ -54,10 +54,10 @@
                     <img src="@Url.Content("~/Images/SanPham/" + item.HinhAnh)" alt="@item.HinhAnh" style="width:100%; height:auto" />
                 </td>
                 <td class="cell-center-middle">
-                    @Convert.ToDecimal(item.DonGia).ToString("N0")đ
+                    @Convert.ToDecimal(item.DonGia).ToString("N0") USD
                 </td>
                 <td class="cell-center-middle">
-                    @Convert.ToDecimal(item.PhiVanChuyen).ToString("N0")đ/km
+                    @Convert.ToDecimal(item.PhiVanChuyen).ToString("N0") USD/km
                 </td>
                 <td class="cell-center-middle">
                     @Html.DisplayFor(modelItem => item.SoLuongDaDat)

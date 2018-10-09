@@ -32,13 +32,13 @@
 
                         @using (Html.BeginForm("CapnhatGiohang", "GioHang", new { @iMaSP = item.iIDSanPham }))
                         {
-                            <td style="vertical-align:middle">@String.Format("{0:0,0}", @item.dPhiVanChuyen)</td>
+                            <td style="vertical-align:middle">@String.Format("{0}", @item.dPhiVanChuyen)</td>
 
                             <td style="vertical-align:middle">
                                 <input class="form-control form-control-static" type="number" min="1" max="1000" name="txtSoluong" value="@item.iSoLuong" style="background-color:antiquewhite; width:70px" required />
                             </td>
-                            <td style="vertical-align:middle">@String.Format("{0:0,0}", @item.dDonGia)</td>
-                            <td style="vertical-align:middle">@String.Format("{0:0,0}", @item.dThanhTien)</td>
+                            <td style="vertical-align:middle">@String.Format("{0}", @item.dDonGia)</td>
+                            <td style="vertical-align:middle">@String.Format("{0}", @item.dThanhTien)</td>
                             <td style="vertical-align:middle">
                                 <input type="submit" class="btn btn-outline-success" value="Cập nhật" />
                                 <button class="btn btn-warning">@Html.ActionLink("Xóa", "XoaGioHang", new { @iMaSP = item.iIDSanPham })</button>

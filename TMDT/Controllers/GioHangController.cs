@@ -34,7 +34,16 @@ namespace TMDT.Controllers
             GioHang sanpham = lstGiohang.Find(n => n.iIDSanPham == iIDSanPham);
             if (sanpham == null)
             {
+                
                 sanpham = new GioHang(iIDSanPham);
+
+                KhuyenMai km = data.KhuyenMais.FirstOrDefault(x => x.IDSanPham == sanpham.iIDSanPham);
+                if (km != null)
+                {
+                    sanpham.dDonGia = (double)(Convert.ToDouble(sanpham.dDonGia) * (1 - km.GiamGia / 100));
+                }
+
+
                 lstGiohang.Add(sanpham);
                 return Redirect(strURL);
             }
@@ -201,7 +210,7 @@ namespace TMDT.Controllers
                         {
                             name = o.sTenSanPham,
                             currency = "USD",
-                            price = o.dDonGia.ToString() + ".00",
+                            price = o.dDonGia.ToString(),
                             quantity = o.iSoLuong.ToString(),
                             sku = "sku"
                         };
@@ -227,15 +236,15 @@ namespace TMDT.Controllers
                     var details = new Details()
                     {
                         tax = "0.00",
-                        shipping = shiptotal.ToString() + ".00",
-                        subtotal = sbtotal.ToString() + ".00"
+                        shipping = shiptotal.ToString(),
+                        subtotal = sbtotal.ToString()
                     };
 
 
                     var amount = new Amount()
                     {
                         currency = "USD",
-                        total = (shiptotal + sbtotal).ToString() + ".00", // Total must be equal to sum of shipping, tax and subtotal.
+                        total = (shiptotal + sbtotal).ToString(), // Total must be equal to sum of shipping, tax and subtotal.
                         details = details
                     };
 

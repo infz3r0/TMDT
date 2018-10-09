@@ -201,7 +201,7 @@ namespace TMDT.Controllers
                 // coming from your db/service based on the passed in value ( val.Value)
                 int id = val.Value;
                 SanPham SanPham = data.SanPhams.SingleOrDefault(i => i.IDSanPham == id);
-                string donGia = Convert.ToDecimal(SanPham.DonGia).ToString("N0") + "đ";
+                string donGia = Convert.ToDecimal(SanPham.DonGia) + " USD";
                 return Json(new { Success = "true", Data = new { DonGia = donGia } });
             }
             return Json(new { Success = "false" });
@@ -220,7 +220,7 @@ namespace TMDT.Controllers
                 if (SanPham != null)
                 {
                     decimal giaGiam = Convert.ToDecimal(SanPham.DonGia) * Convert.ToDecimal(percent);
-                    string giaKhuyenMai = (Convert.ToDecimal(SanPham.DonGia) - giaGiam).ToString("N0") + "đ";
+                    string giaKhuyenMai = (Convert.ToDecimal(SanPham.DonGia) - giaGiam) + " USD";
                     return Json(new { Success = "true", Data = new { GiaKhuyenMai = giaKhuyenMai } });
                 }
                 else

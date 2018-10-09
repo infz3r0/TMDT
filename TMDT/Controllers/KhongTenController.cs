@@ -43,6 +43,15 @@ namespace TMDT.Controllers
             
             SanPham sanPham = data.SanPhams.FirstOrDefault(x=>x.SanPhamAlias.Equals(spAlias));
             ViewBag.URL = string.Format("http://khongten.somee.com/r/{0}/{0}/{0}", sanPham.NSX.Loai.LoaiAlias, sanPham.NSX.NSXAlias, sanPham.SanPhamAlias);
+
+            KhuyenMai km = data.KhuyenMais.FirstOrDefault(x => x.IDSanPham == sanPham.IDSanPham);
+            ViewBag.GiaKM = null;
+            if (km != null)
+            {
+                ViewBag.GiaKM = (Convert.ToDouble(sanPham.DonGia) * (1 - km.GiamGia / 100)).ToString();
+            }
+
+
             return View(sanPham);
         }
 

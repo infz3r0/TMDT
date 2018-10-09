@@ -27,20 +27,20 @@
                         <td id="deleteItem" style="vertical-align:middle">@item.iIDSanPham</td>
                         <td style="vertical-align:middle">@item.sTenSanPham</td>
                         <td><img src="~/Images/ThucDon/@item.sHinhAnh" style="width:150px" /></td>
-                        <td style="vertical-align:middle">@String.Format("{0:0,0}", @item.dPhiVanChuyen)</td>
+                        <td style="vertical-align:middle">@String.Format("{0}", @item.dPhiVanChuyen)</td>
                         @using (Html.BeginForm("CapnhatGiohang", "GioHang", new { @iMaSP = item.iIDSanPham }))
                         {
                             <td style="vertical-align:middle">
                                 @item.iSoLuong
                             </td>
-                            <td style="vertical-align:middle">@String.Format("{0:0,0}", @item.dDonGia)</td>
-                            <td style="vertical-align:middle">@String.Format("{0:0,0}", @item.dThanhTien)</td>
+                            <td style="vertical-align:middle">@String.Format("{0}", @item.dDonGia)</td>
+                            <td style="vertical-align:middle">@String.Format("{0}", @item.dThanhTien)</td>
                         }
                     </tr>
                 }
                 <tr style="text-align:center; font-weight:bold; color:red; font-size:14px">
                     <td colspan="6"> Số lượng thực đơn: @ViewBag.Tongsoluong</td>
-                    <td colspan="1"> Tổng tiền: @String.Format("{0:0,0}", ViewBag.Tongtien) VNĐ </td>
+                    <td colspan="1"> Tổng tiền: @String.Format("{0}", ViewBag.Tongtien) USD </td>
                 </tr>
             </table>
             <div>

@@ -75,10 +75,10 @@
         $(document).ready(function () {
             $("#errorModal").modal();
 
-            var t = $('#dropdown_thucdon').val();
+            var t = $('#dropdown_SanPham').val();
 
             if (t !== "") {
-                $.post("@Url.Action("ThucDonById", "AdminKhuyenMai")?val=" + t, function(res) {
+                $.post("@Url.Action("SanPhamById", "AdminKhuyenMai")?val=" + t, function(res) {
                     if (res.Success === "true") {
 
                         //enable the text boxes and set the value
@@ -92,10 +92,10 @@
             }
 
             var t = $('#GiamGia').val();
-            var idThucDon = $('#dropdown_thucdon').val();
+            var idSanPham = $('#dropdown_SanPham').val();
 
             if (t !== "") {
-                $.post("@Url.Action("GetGiaKhuyenMai", "AdminKhuyenMai")?idThucDon=" + idThucDon + "&val=" + t, function(res) {
+                $.post("@Url.Action("GetGiaKhuyenMai", "AdminKhuyenMai")?idSanPham=" + idSanPham + "&val=" + t, function(res) {
                     if (res.Success === "true") {
 
                         //enable the text boxes and set the value
@@ -110,12 +110,12 @@
         });
     </script>
     <script type="text/javascript">
-        $("#dropdown_thucdon").change(function() {
+        $("#dropdown_SanPham").change(function() {
 
             var t = $(this).val();
 
             if (t !== "") {
-                $.post("@Url.Action("ThucDonById", "AdminKhuyenMai")?val=" + t, function(res) {
+                $.post("@Url.Action("SanPhamById", "AdminKhuyenMai")?val=" + t, function(res) {
                     if (res.Success === "true") {
 
                         //enable the text boxes and set the value
@@ -133,10 +133,10 @@
         $("#GiamGia").change(function() {
 
             var t = $(this).val();
-            var idThucDon = $('#dropdown_thucdon').val();
+            var idSanPham = $('#dropdown_SanPham').val();
 
             if (t !== "") {
-                $.post("@Url.Action("GetGiaKhuyenMai", "AdminKhuyenMai")?idThucDon=" + idThucDon + "&val=" + t, function(res) {
+                $.post("@Url.Action("GetGiaKhuyenMai", "AdminKhuyenMai")?idSanPham=" + idSanPham + "&val=" + t, function(res) {
                     if (res.Success === "true") {
 
                         //enable the text boxes and set the value

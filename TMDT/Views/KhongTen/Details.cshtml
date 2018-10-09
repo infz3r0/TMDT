@@ -20,13 +20,27 @@
         <div class="col-md-8 col-sm-4" style="padding-top: 1vh;">
             <h4 style="font-weight:bold; color:red">Tên Sản Phẩm: @Model.TenSanPham</h4>
             <p style="text-align:justify"><span style="font-weight:bold">Giới Thiệu Sản Phẩm: </span>@Model.MoTaSanPham</p>
+
+            @if (ViewBag.GiaKM != null)
+            {
+                <p style="text-align:justify"><span style="font-weight:bold">Giá bán: </span><span class="old-price">@string.Format("{0} USD", Model.DonGia)</span><span class="new-price">@string.Format("{0} USD", ViewBag.GiakM)</span></p>
+
+            }
+            else
+            {
+                <p style="text-align:justify"><span style="font-weight:bold">Giá bán: </span><span class="new-price">@string.Format("{0} USD", Model.DonGia)</span></p>
+
+            }
+
         </div>
+
+        
 
         <div class="button-add">
             <a href="@Url.Action("ThemGiohang", "GioHang", new { iIDSanPham = Model.IDSanPham, strURL = Request.Url})" class="btn btn-danger">
                 <span style="font-weight:bold">Thêm vào giỏ hàng</span>
             </a>
-        </div>   
+        </div>
     </div>
 
 </div>

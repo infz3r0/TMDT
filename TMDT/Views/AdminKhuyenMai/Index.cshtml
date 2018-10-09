@@ -44,13 +44,13 @@
                         @Html.DisplayFor(modelItem => item.SanPham.TenSanPham)
                     </td>
                     <td class="cell-center-middle">
-                        @Convert.ToDecimal(item.SanPham.DonGia).ToString("N0")đ
+                        @Convert.ToDecimal(item.SanPham.DonGia) USD
                     </td>
                     <td class="cell-center-middle">
                         @Convert.ToDouble(item.GiamGia).ToString("0\\%")
                     </td>
                     <td class="cell-center-middle">
-                        @((Convert.ToDecimal(Convert.ToDouble(item.SanPham.DonGia) - Convert.ToDouble(item.SanPham.DonGia) * (item.GiamGia / 100))).ToString("N0"))đ
+                        @((Convert.ToDecimal(Convert.ToDouble(item.SanPham.DonGia) - Convert.ToDouble(item.SanPham.DonGia) * (item.GiamGia / 100)))) USD
                     </td>
                     <td style="min-width:220px; vertical-align:middle">
                         @Html.ActionLink("Sửa", "Edit", new { id = item.IDSanPham }, new { @class = "btn btn-outline-secondary" })
