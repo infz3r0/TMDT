@@ -423,12 +423,12 @@
     <Content Include="Views\AdminThongKe\DoanhThu.cshtml" />
     <Content Include="Views\AdminThongKe\PV_ThongKeDoanhThu.cshtml" />
     <Content Include="Views\RSS\Index.cshtml" />
+    <Content Include="Views\TimKiem\KetQuaTimKiem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Images\NSX\" />
     <Folder Include="Images\SanPham\" />
-    <Folder Include="Views\TimKiem\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

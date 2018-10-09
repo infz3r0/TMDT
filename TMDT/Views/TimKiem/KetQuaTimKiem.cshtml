@@ -1,0 +1,49 @@
+﻿
+@using PagedList.Mvc;
+@using PagedList;
+@model IPagedList<TMDT.Models.SanPham>
+@{
+    ViewBag.Title = "KetQuaTimKiem";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="container">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <h4 class="title text-center">
+                <span class="pull-left"><span class="text"><span class="line">Kết quả tìm kiếm</span></span></span>
+            </h4>
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4 col-sm-12">
+                        <a class="item-name" href="/r/">
+                            <div class="box-item">
+                                <div class="img-thumbnail">
+                                    <img src="@Url.Content("~/Images/SanPham/" + item.HinhAnh)" />
+                                </div>
+                                <div class="info">
+                                    <p>@item.TenSanPham</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <hr />
+</section>
+<div>
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+    <div class="MenuTrang">
+        @Html.PagedListPager(Model, page => Url.Action("KetQuaTimKiem", new { page = page, @tukhoa = ViewBag.TK }))
+    </div>
+    <style>
+
+        .MenuTrang li {
+            display: inline;
+        }
+    </style>
+</div>

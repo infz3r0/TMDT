@@ -36,7 +36,7 @@ namespace TMDT.Controllers
         [HttpGet]
         public ActionResult KetQuaTimKiem()
         {
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "KhongTen");
         }
     }
 }
