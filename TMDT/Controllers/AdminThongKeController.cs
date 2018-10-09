@@ -42,8 +42,8 @@ namespace TMDT.Controllers
         //Dùng trong Index
         public ActionResult PV_ThongKeSanPham()
         {
-            int month = 1;
-            int year = 2018;
+            int month = DateTime.Now.Month;
+            int year = DateTime.Now.Year;
 
             ViewBag.Month = month;
             ViewBag.Year = year;
@@ -116,8 +116,8 @@ namespace TMDT.Controllers
         //Dùng trong Index
         public ActionResult PV_ThongKeUser()
         {
-            int month = 7;
-            int year = 2019;
+            int month = DateTime.Now.Month;
+            int year = DateTime.Now.Year;
 
             ViewBag.Month = month;
             ViewBag.Year = year;
