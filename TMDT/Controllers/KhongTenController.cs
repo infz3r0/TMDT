@@ -40,7 +40,9 @@ namespace TMDT.Controllers
             {
                 return RedirectToAction("Index");
             }
+            
             SanPham sanPham = data.SanPhams.FirstOrDefault(x=>x.SanPhamAlias.Equals(spAlias));
+            ViewBag.URL = string.Format("http://khongten.somee.com/r/{0}/{0}/{0}", sanPham.NSX.Loai.LoaiAlias, sanPham.NSX.NSXAlias, sanPham.SanPhamAlias);
             return View(sanPham);
         }
 

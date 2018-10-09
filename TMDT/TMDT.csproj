@@ -220,6 +220,7 @@
     <Compile Include="Controllers\AdminSanPhamController.cs" />
     <Compile Include="Controllers\AdminThongKeController.cs" />
     <Compile Include="Controllers\RSSController.cs" />
+    <Compile Include="Controllers\TimKiemController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -257,10 +258,13 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\gotop.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Chart.js" />
+    <Content Include="Scripts\Chart.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -306,6 +310,15 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\responsiveslides.min.js" />
+    <Content Include="Scripts\Shared\common.js" />
+    <Content Include="Scripts\Shared\jquery-1.7.2.min.js" />
+    <Content Include="Scripts\Shared\jquery.fancybox.js" />
+    <Content Include="Scripts\Shared\jquery.flexslider-min.js" />
+    <Content Include="Scripts\Shared\jquery.scrolltotop.js" />
+    <Content Include="Scripts\Shared\superfish.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
@@ -415,6 +428,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Images\NSX\" />
     <Folder Include="Images\SanPham\" />
+    <Folder Include="Views\TimKiem\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

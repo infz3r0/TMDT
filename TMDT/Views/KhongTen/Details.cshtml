@@ -24,23 +24,23 @@
 
         <div class="button-add">
             <a href="@Url.Action("ThemGiohang", "GioHang", new { iIDSanPham = Model.IDSanPham, strURL = Request.Url})" class="btn btn-danger">
-                <span style="font-weight:bold">+</span>
+                <span style="font-weight:bold">Thêm vào giỏ hàng</span>
             </a>
         </div>   
     </div>
 
 </div>
 <hr/>
-@*<div class="container">
+<div class="container">
     <div class="row">
         <div class="col">
-            <div class="fb-like" data-href="@Url.Content("http://npl.somee.com/")" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+            <div class="fb-like" data-href="@ViewBag.URL" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <div class="fb-comments" data-href="@Url.Content("http://npl.somee.com/Home/Details/" + Model.IDMonAn)" data-numposts="5"></div>
+            <div class="fb-comments" data-href="@ViewBag.URL" data-numposts="5"></div>
         </div>
     </div>
-</div>*@
+</div>
 
